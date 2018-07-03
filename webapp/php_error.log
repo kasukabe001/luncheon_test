@@ -1,0 +1,16 @@
+[11-Feb-2018 15:40:23 Asia/Tokyo] PHP Warning:  require_once(/home/kyousai/webapp/libs/Smarty/Smarty.class.php): failed to open stream: No such file or directory in /home/kyousai/webapp/libs/MySmarty.php on line 2
+[11-Feb-2018 15:40:23 Asia/Tokyo] PHP Fatal error:  require_once(): Failed opening required '/home/kyousai/webapp/libs/Smarty/Smarty.class.php' (include_path='/home/kyousai/webapp/libs/pear:.:/usr/share/pear:/usr/share/php') in /home/kyousai/webapp/libs/MySmarty.php on line 2
+[11-Feb-2018 15:48:31 Asia/Tokyo] PHP Fatal error:  Smarty error: [in public/include/HtmlHead.tpl line 8]: [plugin] modifier 'default' is not implemented (core.load_plugins.php, line 118) in /home/kyousai/webapp/libs/Smarty/Smarty.class.php on line 1088
+[11-Feb-2018 16:14:42 Asia/Tokyo] PHP Fatal error:  Call to undefined method DB_Error::autoCommit() in /usr/share/pear/DB.php on line 986
+[11-Feb-2018 16:16:42 Asia/Tokyo] PHP Fatal error:  Call to undefined method DB_Error::autoCommit() in /usr/share/pear/DB.php on line 986
+[11-Feb-2018 17:03:20 Asia/Tokyo] PHP Fatal error:  Call to undefined method DB_Error::autoCommit() in /usr/share/pear/DB.php on line 986
+[11-Feb-2018 17:07:17 Asia/Tokyo] PHP Fatal error:  Call to undefined method DB_Error::autoCommit() in /usr/share/pear/DB.php on line 986
+[11-Feb-2018 17:27:25 Asia/Tokyo] PHP Fatal error:  Call to undefined method DB_Error::autoCommit() in /home/kyousai/public_html/admincl/newdata.php on line 35
+[11-Feb-2018 17:38:14 Asia/Tokyo] PHP Fatal error:  Call to undefined method DB_Error::rollback() in /home/kyousai/public_html/admincl/newdata.php on line 38
+[11-Feb-2018 17:40:01 Asia/Tokyo] PHP Notice:  Use of undefined constant newdata - assumed 'newdata' in /home/kyousai/public_html/admincl/newdata.php on line 39
+[11-Feb-2018 17:44:35 Asia/Tokyo] PHP Notice:  Use of undefined constant newdata - assumed 'newdata' in /home/kyousai/public_html/admincl/newdata.php on line 39
+[11-Feb-2018 17:47:02 Asia/Tokyo] PHP Notice:  Use of undefined constant newdata - assumed 'newdata' in /home/kyousai/public_html/admincl/newdata.php on line 39
+[11-Feb-2018 17:47:52 Asia/Tokyo] PHP Notice:  Use of undefined constant newdata - assumed 'newdata' in /home/kyousai/public_html/admincl/newdata.php on line 39
+[11-Feb-2018 17:52:10 Asia/Tokyo] PHP Notice:  Use of undefined constant newdata - assumed 'newdata' in /home/kyousai/public_html/admincl/newdata.php on line 39
+[11-Feb-2018 17:57:29 Asia/Tokyo] PHP Notice:  Use of undefined constant newdata - assumed 'newdata' in /home/kyousai/public_html/admincl/newdata.php on line 39
+[11-Feb-2018 18:01:24 Asia/Tokyo] PHP Fatal error:  Call to undefined method DB_Error::prepare() in /home/kyousai/webapp/modules/MembersDAO.php on line 1014

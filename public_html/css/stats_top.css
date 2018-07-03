@@ -1,0 +1,337 @@
+.Nothing1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px
+}
+.Nothing2 {
+	FONT-SIZE: 12px; WIDTH: 145px
+}
+.ldexcep {
+	FONT-SIZE: 12px; LINE-HEIGHT: 120%
+}
+.notGames {
+	PADDING-LEFT: 60px; FONT-SIZE: 14px; COLOR: #000000
+}
+.contentsMainTop {
+	PADDING-LEFT: 0px; PADDING-TOP: 5px
+}
+body {
+ text-align:center;
+
+ background-color:#ffcc66;
+ margin-left:0;
+ margin-right:0;
+
+/* scrollbar-base-color: #FFffff;
+ scrollbar-face-color: #FFA07A; */
+}
+A {
+	COLOR: #3333ff; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #333fff; TEXT-DECORATION: underline 
+/*	COLOR: #ffa500; TEXT-DECORATION: underline */
+}
+H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 24px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H2 {
+	FONT-SIZE: 16px; MARGIN: 0px
+}
+H3 {
+	FONT-SIZE: 12px; MARGIN: 0px; COLOR: saddlebrown
+}
+.stlndetail {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; WIDTH: 700px; BORDER-BOTTOM: medium none; HEIGHT: 5px
+}
+.stmenulink A {
+	COLOR: black; TEXT-DECORATION: underline
+}
+.stmenulink A:hover {
+	COLOR: orange
+}
+#stdivmain {
+	MARGIN-BOTTOM: 50px
+}
+#stdivmain A:hover {
+	COLOR: orange
+}
+#stdivheader {
+	
+}
+#stdivtitle {
+	MARGIN-BOTTOM: 5px
+}
+#stdivtitle TD.stbiskun {
+	
+}
+#stdivtitle DIV.stleague {
+	PADDING-LEFT: 15px; FONT-SIZE: 14px
+}
+#stdivtitle A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+#stdivtitle A:hover {
+	COLOR: #ffa500; TEXT-DECORATION: underline
+}
+.stmenuscores {
+	WIDTH: 350px; BACKGROUND-COLOR: #f4a460
+}
+.stmenusubcolor {
+	BACKGROUND-COLOR: #dcdcdc
+}
+#stdivstandings {
+	
+}
+.stmenustandings {
+	WIDTH: 325px; BACKGROUND-COLOR: #336666
+}
+.stlinkdetail {
+	PADDING-RIGHT: 2px; PADDING-TOP: 3px; TEXT-ALIGN: right
+}
+.stlink {
+	PADDING-LEFT: 20px; FONT-SIZE: 12px; LINE-HEIGHT: 160%
+}
+#stdivtopplayer {
+	
+}
+#stdivtopplayer H3 {
+	MARGIN-LEFT: 20px
+}
+.sttoppyclr {
+	BACKGROUND-COLOR: #666666
+}
+.sttoppyttl {
+	FONT-SIZE: 12px; TEXT-ALIGN: center
+}
+.sttoppyttl A {
+	COLOR: #333333
+}
+#stdivleaders {
+	
+}
+#stdivleaders H3 {
+	MARGIN-LEFT: 20px
+}
+.stleadclr {
+	BACKGROUND-COLOR: #666666
+}
+.stleaddivlist {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 100%; PADDING-TOP: 0px; BACKGROUND-COLOR: #cccccc
+}
+.stleadsubclr {
+	BACKGROUND-COLOR: white
+}
+.stleadttl {
+	FONT-SIZE: 12px; COLOR: white; LINE-HEIGHT: 180%; TEXT-ALIGN: left
+}
+.stleadttl A {
+	COLOR: navy
+}
+.stleadttl A:unknown {
+	COLOR: orange
+}
+.stleadhead {
+	BACKGROUND-COLOR: #999999
+}
+#stteamplayer {
+	
+}
+#stteamplayer H3 {
+	MARGIN-LEFT: 20px
+}
+#stteamplayer TD.stteamlink {
+	PADDING-RIGHT: 8px; FONT-SIZE: 12px; TEXT-ALIGN: center
+}
+#stteamplayer TD.stteampd {
+	PADDING-RIGHT: 10px
+}
+.scores {
+	HEIGHT: 100px; BACKGROUND-COLOR: #fafad2
+}
+.scoresDate {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 14px; PADDING-BOTTOM: 1px; COLOR: #cd5c5c; PADDING-TOP: 1px; HEIGHT: 28px; TEXT-ALIGN: center
+}
+.scoresLeague {
+	WIDTH: 100%
+}
+.scoresCl {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #228b22
+}
+.scoresPl {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #3333ff
+}
+.scoresEl {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #4b0082
+}
+.scoresWl {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #6699cc
+}
+.scoresIn {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #333333
+}
+.scoresNS {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 88px; COLOR: #333333
+}
+.scoresFS {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 88px; COLOR: #333333
+}
+.scoresLine {
+	TEXT-ALIGN: center
+}
+.scoresResults {
+	FONT-SIZE: 12px
+}
+.scoresTeam {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; WIDTH: 18px; COLOR: #000000; TEXT-ALIGN: center
+}
+.scoresHome {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 15px; COLOR: #cc0000; TEXT-ALIGN: center
+}
+.scoresVs {
+	WIDTH: 5px; COLOR: #333333; TEXT-ALIGN: center
+}
+.scoresAway {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 15px; COLOR: #cc0000; TEXT-ALIGN: center
+}
+.regular {
+	FONT-SIZE: 12px; WIDTH: 160px
+}
+.regularPos {
+	TEXT-ALIGN: center
+}
+.regularPlayer {
+	WIDTH: 95px; WHITE-SPACE: nowrap
+}
+.regularTeam {
+	WIDTH: 15px; TEXT-ALIGN: center
+}
+.regularStats {
+	WIDTH: 15px; TEXT-ALIGN: center
+}
+.standings {
+	BACKGROUND-COLOR: #DCDCDC;
+/*	BACKGROUND-COLOR: #333333; */
+}
+.standingsHeadCl {
+	FONT-SIZE: 12px; COLOR: #800080; BACKGROUND-COLOR: #EBEBEB; TEXT-ALIGN: center;border-top:solid 1px #333333; border-left:solid 1px #333333;
+}
+.standingsHeadPl {
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #000000; BACKGROUND-COLOR: #cfcfcf; TEXT-ALIGN: center; border-top:solid 1px #333333; border-left:solid 1px #333333;
+}
+.standingsHeadEl {
+	FONT-SIZE: 12px; COLOR: #ffffff; BACKGROUND-COLOR: darkslateblue; TEXT-ALIGN: center
+}
+.standingsHeadWl {
+	FONT-SIZE: 12px; COLOR: #ffffff; BACKGROUND-COLOR: steelblue; TEXT-ALIGN: center
+}
+.standingsHdTeam {
+	FONT-SIZE: 12px; COLOR: #666666; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.standingsHdGame {
+	FONT-SIZE: 12px; WIDTH: 30px; COLOR: #666666; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.standingsHdWin {
+	FONT-SIZE: 12px; WIDTH: 30px; COLOR: #666666; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.standingsHdLose {
+	FONT-SIZE: 12px; WIDTH: 30px; COLOR: #666666; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.standingsHdTai {
+	FONT-SIZE: 12px; WIDTH: 30px; COLOR: #666666; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.standingsHdPct {
+	FONT-SIZE: 12px; WIDTH: 30px; COLOR: #666666; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.standingsHdGb {
+	FONT-SIZE: 12px; WIDTH: 30px; COLOR: #666666; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.standingsTeam {
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #ff0000; LINE-HEIGHT: 130%; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+.standingsGame {
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 130%; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+.standingsWin {
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; TEXT-ALIGN: left
+}
+.standingsLose {
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #0000ff; LINE-HEIGHT: 130%; TEXT-ALIGN: center
+}
+.standingsTai {
+	FONT-SIZE: 12px; COLOR: #333333; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.standingsPct {
+	FONT-SIZE: 12px; COLOR: #333333; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.standingsGb {
+	FONT-SIZE: 12px; COLOR: #333333; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.leaders {
+	
+}
+.leadersBmn {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-ALIGN: center
+}
+.leadersStats {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; WIDTH: 18px; LINE-HEIGHT: 200%; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.leadersPlayer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; WIDTH: 115px; LINE-HEIGHT: 160%; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.inbox { 
+  border-style: none;
+  overflow-x:hidden;
+  overflow-y:auto;
+  width:100%; height:630px;
+}
+.Freezing {   
+    z-index: 10;    
+    position: relative;    
+/*    top: expression(this.offsetParent.scrollTop-18); */
+    top: expression(this.offsetParent.scrollTop);
+}
+.FreezingCol {   
+    z-index: 1;    
+    left: expression(document.getElementById("freezingDiv").scrollLeft);
+/*    left: expression(document.getElementById("boxC").scrollLeft); */
+    position: relative;
+
+}
+#freezingDiv {
+overflow: auto;
+}
+
+#container {
+ width:100%;
+ margin-left:auto;
+ margin-right:auto;
+ text-align:left;
+}
+
+#boxA {
+ position:relative;
+ width:100%;
+/* float:left; */
+ margin-left:auto;
+ margin-right:auto;
+
+ font-size:10pt;
+/* color:#ffffff; */
+ background: #9b0000 url(../css/banner-bg.gif) left top repeat-x;
+}
+
+
+#boxC {
+  width:100%;   /* 982 */
+  height:535px;   /* 535 486 */
+  overflow:auto;
+  background-color:#ffffff;
+}
+
+img {
+  border:0;
+}
+
+.fsize14 {
+ text-align:center;
+ font-size:14pt;
+}

@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="ja">
+<title>領域選択</title>
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+function closeBack()
+{
+  if (document.pickform.R1.selectedIndex == 0) {
+  	returnValue="循環器・内分泌領域";
+  } else if (document.pickform.R1.selectedIndex == 1) {
+  	returnValue="消化器・運動器領域";
+  } else if (document.pickform.R1.selectedIndex == 2) {
+  	returnValue="免疫アレルギー領域";
+  } else if (document.pickform.R1.selectedIndex == 3) {
+  	returnValue="感染症領域";
+  } else if (document.pickform.R1.selectedIndex == 4) {
+  	returnValue="中枢領域";
+  } else if (document.pickform.R1.selectedIndex == 5) {
+  	returnValue="泌尿器領域";
+  } else if (document.pickform.R1.selectedIndex == 6) {
+  	returnValue="マーケティンク゛統括";
+  } else if (document.pickform.R1.selectedIndex == 7) {
+  	returnValue="その他（化血研等）";
+  } else {
+  	returnValue=""; 
+  }
+  window.close();
+ }
+</script>
+<body onBlur="window.close();" onload="d1.innerHTML=dialogArguments;" bgcolor=#FFDE9B>
+<form method="POST" name="pickform" action="--WEBBOT-SELF--">
+<!--webbot bot="SaveResults" u-file="fpweb:///_private/form_results.csv"
+s-format="TEXT/CSV" s-label-fields="TRUE" --><p>
+&nbsp;
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="200" id="AutoNumber1">
+  <tr>
+    <td width="10"></td>
+    <td width="180">
+      <p align="center"><font color="#000080">領域選択</font></p>
+    </td>
+    <td width="20"><font color=#FFDE9B><DIV id=d1> </div></font></td>
+  </tr>
+  <tr>
+    <td width="10"> </td>
+    <td width="180" align="center">
+      <br>
+      &nbsp;<select size="8" name="R1" ondblclick="closeBack();">
+  <option value="循環器・内分泌領域">循環器・内分泌領域</option>";
+  <option value="消化器・運動器領域">消化器・運動器領域</option>";
+  <option value="免疫アレルギー領域">免疫アレルギー領域</option>";
+  <option value="感染症領域">感染症領域</option>";
+  <option value="中枢領域">中枢領域</option>";
+  <option value="泌尿器領域">泌尿器領域</option>";
+  <option value="マーケティンク゛統括">マーケティンク゛統括</option>";
+  <option value="その他（化血研等）">その他（化血研等）</option>";
+	</select>
+    </td>
+    <td width="20">　</td>
+  </tr>
+  <tr>
+    <td width="10"></td>
+    <td width="180">
+    <p align="center">
+      <input name="btn1" type="button" value="選択" onclick="closeBack();">&nbsp;&nbsp; <input name="btn" type="button" value="閉じる" onclick="returnValue='';window.close();"></td>                                       
+    <td width="20">　</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

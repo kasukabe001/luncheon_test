@@ -1,0 +1,76 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>コレポン</title>
+<script type="text/JavaScript">
+<!--
+function coreponSave(id){
+    val=document.form1.corepon.value;
+    location.replace("../admincl/itemsave.php?semi_id=" + id + "&corepon=" + encodeURI(document.form1.corepon.value));
+}
+//-->
+</script>
+
+<style type="text/css">
+<!--
+body {
+	font-family: "ＭＳ Ｐゴシック", "Osaka", "Times New Roman", "Times", "serif";
+	background-color: #ffffff;
+	font-size: 12pt
+}
+table {
+	background-color: #FFFFFF; /* #000080 */
+}
+td {
+	font-family: "ＭＳ Ｐゴシック", "Osaka", "Times New Roman", "Times", "serif";
+	font-size: 12pt
+}
+.titleblock {
+	background-color: #ffcc66;
+	color: #ffffff;
+}
+//-->
+</style>
+</head>
+
+<body >
+<table width="480" align=center cellpadding=8>
+	<tr>
+	<td align="center" class="titleblock">
+        <font size="4"><b>コレポン</b></font></td>
+	</tr>
+</table>
+<br>
+<form name="form1" method="POST" action="itemsave.php" >
+	<table width="470" align=center cellpadding=3 cellspacing=0 style="border-collapse:collapse; padding-left:4; padding-right:4; padding-top:1; padding-bottom:1" >
+		<tr>
+		<td ><font size="3"><b>#gakkai#</b></font></td> 
+		</tr>
+		<tr>
+		<td ><font size="3" >#seminar#</font></td>
+		</tr>
+	</table>
+    <br>
+    <table width="470" align=center cellpadding=3 cellspacing=0 style="border-collapse:collapse; padding-left:4; padding-right:4; padding-top:1; padding-bottom:1" >
+	<tr><td>
+        <textarea rows="20" name="corepon" cols="64" >#corepon#</textarea></td>
+	</tr>
+   </table>
+<br />
+    <div align="center">
+        <input type="submit" value="保存" name="B1" >
+    </div>
+<br />
+   <table width="470" align=center cellpadding=3 cellspacing=0 style="border-collapse:collapse; padding-left:4; padding-right:4; padding-top:1; padding-bottom:1" >
+        <tr>
+	<td class="titleblock"></td>
+	</tr>
+   </table>
+	<!-- hidden -->
+	<input type="hidden" name="semi_id" value="#semi_id#">
+</form>
+<INPUT TYPE=button NAME="allot" VALUE="Close" onClick="coreponSave(#semi_id#);window.close();">
+
+</body>
+</html>
