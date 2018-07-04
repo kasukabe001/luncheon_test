@@ -24,10 +24,10 @@ body {
  scrollbar-face-color: #FFA07A; */
 }
 A {
-	COLOR: #3333ff; TEXT-DECORATION: underline
+	COLOR: #3333ff; TEXT-DECORATION: none ; /* underline */
 }
 A:hover {
-	COLOR: #333fff; TEXT-DECORATION: underline 
+	COLOR: #333fff; TEXT-DECORATION: none ; /* underline */ 
 /*	COLOR: #ffa500; TEXT-DECORATION: underline */
 }
 H1 {
@@ -251,7 +251,10 @@ H3 {
 	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 130%; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
 }
 .standingsWin {
-	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; TEXT-ALIGN: left
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; TEXT-ALIGN: left;
+}
+.standingsWinCenter {
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; TEXT-ALIGN: center;
 }
 .standingsLose {
 	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #0000ff; LINE-HEIGHT: 130%; TEXT-ALIGN: center
@@ -332,6 +335,5 @@ img {
 }
 
 .fsize14 {
- text-align:center;
  font-size:14pt;
 }

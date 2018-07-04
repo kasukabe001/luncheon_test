@@ -41,7 +41,7 @@ case 'Display':
 default:
 
     //トークンのセット
-    createToken(&$this->renderer, &$this->session);
+    createToken($this->renderer, $this->session);
     //DBからセミナー情報を取得し、QFにセット
     $row = $dbh->selectById($this->session->getParameter('semi_id'),'semi_id');
 //    $qform->setDefaults($row);
@@ -78,7 +78,7 @@ case 'Confirm':
 
     if ($act != 'Confirm') {
         //トークンのセット
-        createToken(&$this->renderer, &$this->session);
+	createToken($this->renderer, $this->session);
         $this->tpl_name = 'member/Enja_Input.tpl';
 
     } else {
@@ -128,7 +128,7 @@ case 'Confirm':
 
 case 'Update':
 case 'Direct':
-    $checkToken = validateToken(&$this->request, &$this->session);
+    $checkToken = validateToken2($this->request->getParameter('token'), $this->session->getParameter('token'));
     if ($checkToken === false) {
         $this->tpl_name = '_exception/reloaded_ja.tpl';
         break;
@@ -412,7 +412,7 @@ print $postData['cs_reg_date5'];
 
     // 操作履歴テーブル用のデータを抽出して、加工
     $diff = fetchDiff($beforeData,$postData); //変更項目の抽出を２度行っている
-    $diff = remakeDiff($diff, &$qform); //改良の余地あり
+    $diff = remakeDiff($diff, $qform); //改良の余地あり
     //操作履歴TBLへ追加
     $history->newinsert($this->session->getParameter('semi_id'),
                         $diff // 変更内容

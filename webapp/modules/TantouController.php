@@ -36,7 +36,7 @@ case 'Display':
 case 'Reload':
 default:
     //トークンのセット
-    createToken(&$this->renderer, &$this->session);
+    createToken($this->renderer, $this->session);
 
     //セミナー情報を取得
     $semi_id=$this->session->getParameter('semi_id');
@@ -133,7 +133,7 @@ case 'Confirm':
 
     if ($act != 'Confirm') {
         //トークンのセット
-        createToken(&$this->renderer, &$this->session);
+        createToken($this->renderer, $this->session);
 
         $this->tpl_name = 'member/Tantou_Input.tpl';
 
@@ -198,7 +198,7 @@ case 'Confirm':
 
 case 'Update':
 case 'Direct':
-    $checkToken = validateToken(&$this->request, &$this->session);
+    $checkToken = validateToken2($this->request->getParameter('token'), $this->session->getParameter('token'));
     if ($checkToken === false) {
         $this->tpl_name = '_exception/reloaded_ja.tpl';
         break;
@@ -235,7 +235,7 @@ case 'Direct':
 
     //変更内容の抽出
     $diff = fetchDiff($beforeData, $postData);
-    $diff = remakeDiff($diff, &$qform);
+    $diff = remakeDiff($diff, $qform);
 
     //変更がなければ
     if (count($diff) == 0) {

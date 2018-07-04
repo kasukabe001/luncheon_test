@@ -165,6 +165,9 @@ case (3): // 2011.7.21 座長・演者分離
 	}
 	break;
 case (4): // 2012.4.9 追加
+        header("Content-Disposition: attachment; filename=shohei.rtf");
+	$tmpl = file("../../template/shohei.rtf");
+/*
 	if ($zaen == "座長" ) {
 	  header("Content-Disposition: attachment; filename=shoheishozacho.rtf");
 	  $tmpl = file("../../template/shoheizacho.rtf");
@@ -172,6 +175,7 @@ case (4): // 2012.4.9 追加
 	  header("Content-Disposition: attachment; filename=shoheishoenzya.rtf");
 	  $tmpl = file("../../template/shoheienzya.rtf");
 	}
+*/
 	break;
 case (5): // 2012.4.6 追加
 	header("location: ./InfoExcel.php?semi_id=". $_POST["semi_id"] . "&zaen=" . $name . "&cs_id=" . $cs_id);

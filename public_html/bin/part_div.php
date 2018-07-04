@@ -79,7 +79,7 @@ class myPgSelect2 extends PgSelect2 {
     if ($cmod == 1) $cc="#FFA07A"; //f0f0f0 FFA07A
 	else $cc="#ffffff";
 
-    print ("<td height=35 class=FreezingCol style =\"FONT:mspgothic; FONT-SIZE: 12px; COLOR: #0000ff; LINE-HEIGHT: 130%; BACKGROUND-COLOR: $cc;\" >");
+    print ("<td rowspan=2 class=standingsWin>");
    print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
     $num += 1;
   }
