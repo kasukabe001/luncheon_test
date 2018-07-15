@@ -234,7 +234,7 @@ if ($mode != "insert" && $mode != "update") {
   if (!empty($kb)) $atrlist["kaisaibi"] = $kb;
   $atrlist["sys_stat"] = "0";
   if (!empty($gk)) $atrlist["gakkai"] = $gk;
-  if (!empty($hm)) $atrlist["hinmoku"] = $hm;
+  if (!empty($hm)) $atrlist["hinmoku"] = strtoupper($hm);
   if (!empty($pl)) $atrlist["place"] = $pl;
   if (!empty($ze)) {
     if ($zaen == 'Both') $atrlist["chair2"] = $ze;      // 両方

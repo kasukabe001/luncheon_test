@@ -153,44 +153,11 @@ H3 {
 .scoresLeague {
 	WIDTH: 100%
 }
-.scoresCl {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #228b22
-}
-.scoresPl {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #3333ff
-}
-.scoresEl {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #4b0082
-}
-.scoresWl {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #6699cc
-}
-.scoresIn {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 80px; COLOR: #333333
-}
-.scoresNS {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 88px; COLOR: #333333
-}
-.scoresFS {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 88px; COLOR: #333333
-}
 .scoresLine {
 	TEXT-ALIGN: center
 }
 .scoresResults {
 	FONT-SIZE: 12px
-}
-.scoresTeam {
-	FONT-WEIGHT: bold; FONT-SIZE: 14px; WIDTH: 18px; COLOR: #000000; TEXT-ALIGN: center
-}
-.scoresHome {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 15px; COLOR: #cc0000; TEXT-ALIGN: center
-}
-.scoresVs {
-	WIDTH: 5px; COLOR: #333333; TEXT-ALIGN: center
-}
-.scoresAway {
-	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 15px; COLOR: #cc0000; TEXT-ALIGN: center
 }
 .regular {
 	FONT-SIZE: 12px; WIDTH: 160px
@@ -325,9 +292,9 @@ overflow: auto;
 
 #boxC {
   width:100%;   /* 982 */
-  height:535px;   /* 535 486 */
-  overflow:auto;
-  background-color:#ffffff;
+  height:720px;  /* 535 */
+  overflow:hidden; /* auto   */
+  background-color:#ffffff; /
 }
 
 img {

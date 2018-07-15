@@ -10,7 +10,7 @@
     <TD align=left width=780 colSpan=4 >アップロードファイル : {$fnum}</TD>
   </TR>
   <TR>
-    <TD colSpan=3 width=70%><font size="2"><span class="blue">青色はトップページ掲載項目です。</span></font></TD>
+    <TD colSpan=3 width=70%><font size="2"><b>太字</b>はトップページ掲載項目です。</font></TD>
     <TD align="right" colspan=2 >最終更新日 {$form.last_date.value|date_format:"%Y/%m/%d"}</TD>
   </TR>
   <TR>
@@ -46,13 +46,13 @@
     <td width="80%" class="titleblock" colspan="3">{$form.kaiki.value}</td>
   </tr>
   <tr>
-    <td class="titleblock2b" width="20%">会場（施設名）</td>
+    <td class="titleblock2b" width="20%">会場</td>
     <td width="80%" class="titleblock" colspan="3">{$form.place.value}</td>
   </tr>
-  <tr>
+  <!-- tr>
     <td class="titleblock2" width="20%">会場（部屋名）</td>
     <td width="80%" class="titleblock" colspan="3">{$form.room.value}</td>
-  </tr>
+  </tr -->
   <tr>
     <td class="titleblock2" width="20%">URL</td>
     <td width="80%" class="titleblock" colspan="3"><a href="{$form.yobi2.value}" target=_blank>{$form.yobi2.value}</a></td>
@@ -62,7 +62,7 @@
     <td width="80%" class="titleblock" colspan="3">{$form.thema.value}</td>
   </tr>
   <tr>
-    <td class="titleblock2b" width="20%">特記事項</td>
+    <td class="titleblock2" width="20%">特記事項</td>
     <td width="80%" class="titleblock" colspan="3">{$form.tokki.html}</td>
   </tr>
   <tr>
@@ -198,13 +198,13 @@
     <td width="30%" class="titleblock">{$form.zaseki.value}</td>
   </tr>
   <tr>
-    <td class="titleblock2b" width="20%" >録画録音</td>
+    <td class="titleblock2" width="20%" >録画録音</td>
     <td width="30%" class="titleblock" >{$form.syuroku.value}</td>
     <td class="titleblock2b" width="20%" >海外演者の有無</td>
     <td width="30%" class="titleblock" >{$form.kaigai.value}</td>
   </tr>
   <tr>
-    <td class="titleblock2" width="20%" >アンケート</td>
+    <td class="titleblock2b" width="20%" >アンケート</td>
     <td width="30%" class="titleblock" >{$form.anquete.value}</td>
     <td width="20%" class="titleblock"></td>
     <td width="30%" class="titleblock"></td>
@@ -216,13 +216,13 @@
     <td class="titleblock3" colSpan="4" height="21">抄録情報</td>
   </tr>
   <tr>
-    <td class="titleblock2b" width="20%">抄録有無</td>
+    <td class="titleblock2" width="20%">抄録有無</td>
     <td width="30%" class="titleblock">{$form.syoroku.html}</td>
     <td class="titleblock2" width="20%" class="titleblock">文字制限</td>
     <td width="30%" class="titleblock">{$form.moji_limit.html} 文字以内</td>
   </tr>
   <tr>
-    <td width="20%" class="titleblock2">進捗状況</td>
+    <td width="20%" class="titleblock2b">進捗状況</td>
     <td width="30%" class="titleblock">{$form.sintyoku.value}</td>
     <td class="titleblock2" width="20%" class="titleblock"></td>
     <td width="30%" class="titleblock"></td>
@@ -246,13 +246,13 @@
   <tr>
     <td class="titleblock2b" width="20%">役割者決定</td>
     <td width="30%" class="titleblock">{$form.yakubun1.html}</td>
-    <td class="titleblock2b" width="20%" >LS事前申込</td>
+    <td class="titleblock2" width="20%" >LS事前申込</td>
     <td width="30%" class="titleblock">{$form.ls_mousi.html}</td>
   </tr>
   <tr>
-    <td class="titleblock2b" width="20%">1stメール(API)</td>
+    <td class="titleblock2" width="20%">1stメール(API)</td>
     <td width="30%" class="titleblock">{$form.amail.html}</td>
-    <td class="titleblock2b" width="20%" class="titleblock">2ndメール(CL)</td>
+    <td class="titleblock2b" width="20%" class="titleblock">MR宛てMail</td>
     <td width="30%" class="titleblock">{$form.annai2.value}</td>
   </tr>
   <tr>

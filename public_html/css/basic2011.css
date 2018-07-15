@@ -35,8 +35,9 @@ td {
 	border-bottom:solid 1px #333333;
 	}
 .titleblock2b { /* 項目名 未使用 */
-/*	background-color: #FFDE9B; TEXT-ALIGN: center; text-decoration: underline;font-size:11pt; */
-	background-color: #FFDE9B; color:#0000ff; font-size:11pt;
+	background-color: #FFDE9B; color:#000000; font-size:11pt; 
+    font-weight:bold;
+/*	background-color: #FFDE9B; color:#0000ff; font-size:11pt; */
 	border-bottom:solid 1px #333333;
 	}
 .titleblock3 {
@@ -407,3 +408,9 @@ td {
 	padding: 4px;
 }
 
+/* input[type="button"], */
+/* input[type="reset"],
+input[type="submit"] {
+	cursor: pointer; 
+    border-radius:5px;
+} */

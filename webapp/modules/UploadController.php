@@ -29,7 +29,7 @@ case 'Display':
 default:
 
     //トークンのセット
-    createToken(&$this->renderer, &$this->session);
+    createToken($this->renderer, $this->session);
     //DBからセミナー情報を取得し、QFにセット
 
     $row = $dbh->selectById($this->session->getParameter('semi_id'),'semi_id');
