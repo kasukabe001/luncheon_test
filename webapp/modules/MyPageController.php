@@ -49,7 +49,7 @@ case 'Login':
     if ($uid == _ADMIN_UID3_ && $pwd == _ADMIN_PWD3_) {
        header('Location:mypage.php?_mod=Basic');
     } else {
-       header('Location:mypage.php?_mod=Info');
+       header('Location:mypage.php?_mod=Info&move=' . $_GET['move']);
     }
     break;
 

@@ -1,10 +1,14 @@
 function TopWindow(oid,cmod,token){
 	var rand = Math.floor( Math.random() * 1000 ) + 1;
-if (cmod == 0) {
-	fname="../mypage.php?oid=" + oid + "&_act=Login";
-} else {
-	fname="../mypage.php?oid=" + oid + "&_act=Login";
-}
+	if (cmod == 0) {
+		if (token==1) {
+			fname="../mypage.php?oid=" + oid + "&_act=Login&move=600";
+		} else {
+			fname="../mypage.php?oid=" + oid + "&_act=Login";
+		}
+	} else {
+		fname="../mypage.php?oid=" + oid + "&_act=Login";
+	}
 	w=window.open(fname,"Detail","width=820,height=800,status=no,resizable=Yes,directories=no,scrollbars=yes,screenX=1,left=1,screenY=1,top=1");
 }
 function TopWindowClose(){

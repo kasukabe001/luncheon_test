@@ -13,7 +13,6 @@
 
 {if $htmlTitle=="InfoInput"}
   <script type="text/javascript" src="js/smoothScroll.js"></script>
-  <!-- script type="text/javascript" src="js/calendar.js"></script -->
 {elseif $htmlTitle=="ZachoInput" || $htmlTitle=="EnjaInput"}
         <script src="./js/jquery-1.2.6.js" type="text/javascript"></script>
         <script src="./js/ui.core.js" type="text/javascript"></script>
@@ -69,7 +68,6 @@
                 $('#container-10 > ul').tabs({ selected: null, unselect: true });
                 $('#container-11 > ul').tabs({ event: 'mouseover' });*/
             });
-
  {/literal}
         </script>
 
@@ -78,6 +76,6 @@
 
 </head>
 
-<body>
+<body onload=moveto({$smarty.request.move})>
 <a ID="top"></a>
 

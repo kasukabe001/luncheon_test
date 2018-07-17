@@ -62,7 +62,7 @@
     <td width="80%" class="titleblock" colspan="3">{$form.thema.value}</td>
   </tr>
   <tr>
-    <td class="titleblock2" width="20%">特記事項</td>
+    <td class="titleblock2" width="20%"><a name="special">特記事項</td>
     <td width="80%" class="titleblock" colspan="3">{$form.tokki.html}</td>
   </tr>
   <tr>
@@ -210,7 +210,7 @@
     <td width="30%" class="titleblock"></td>
   </tr>
 </table>
-<br>
+<div id="abstract">
 <table cellSpacing="0" cellPadding="6" width="780">
   <tr>
     <td class="titleblock3" colSpan="4" height="21">抄録情報</td>
@@ -232,7 +232,7 @@
     <td width="80%" class="titleblock" colspan="3"><a href="{$form.endai_url.value}" target=_blank>{$form.endai_url.value}</a></td>
   </tr>
 </table>
-<br>
+</div><!-- id="abstract" -->
 <TABLE cellSpacing=0 cellPadding=6 width=780>
   <tr>
     <td class="titleblock3" colSpan="4" height="21">進捗情報</td>

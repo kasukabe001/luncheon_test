@@ -208,7 +208,7 @@
     <td width="25%" class="titleblock">{$annai2}{$form.annai2.html}{$eannai2}</td>
   </tr>
   <!-- tr>
-    <td width="25%" class="titleblock2">要綱入手</td>
+    <td width="25%" class="titleblock2">趣意書入手</td>
     <td width="25%" class="titleblock"><input type="text" name="yoko" size="20" style="IME-MODE: inactive" maxlength=36></td>
     <td class="titleblock2" align="middle" width="25%">案内状作成</td>
     <td width="25%" class="titleblock"><input type="text" name="annai1" size="20" style="IME-MODE: inactive" maxlength=36></td> 

@@ -41,5 +41,7 @@ function AdminClear() {
 	document.formMembersSearch.searchMode.selectedIndex = 0;
 }
 
-
+function moveto(n) {
+	window.scrollTo(0, n);
+}
 
