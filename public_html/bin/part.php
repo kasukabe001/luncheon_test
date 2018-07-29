@@ -47,7 +47,7 @@ require_once("../../com212/inc/const.inc");
 <form name=headform style="margin-bottom=1px;"><br>
 <table width=100% cellpadding=4 cellspacing=4><tr>
 <!-- td width=540 bgcolor="#FFffff" style="border:double;"><font size=2 -->
-<td width="71%" bgcolor="#FFffff" style="border:double;"><font size=2>
+<td width="71%" bgcolor="#FFffff" style="border:double;FONT-SIZE: 12px;">
 &nbsp;<b>年&nbsp;&nbsp;&nbsp;度</b>：&nbsp;<select size=1 name="n" STYLE="background-color:#ffffff;">
     <option value="" > </option>
     <option value="0" >2007</option>
@@ -103,23 +103,47 @@ require_once("../../com212/inc/const.inc");
 <input type="text" name="h" size=10 STYLE="border-style:none; background-color:#CFCFCF">
 
 &nbsp;<B>製品担当</B>：
-<select size=1 name="seihin" STYLE="background-color:#ffffff;" >
+<!-- select size=1 name="seihin" STYLE="background-color:#ffffff;" >
     <option value="" selected > </option>
     <option value="Aさん" >Aさん</option>
     <option value="Bさん" >Bさん</option>
-    </select>
+    </select -->
+<INPUT TYPE=text NAME=seihin size=10 STYLE="border-style:none; background-color:#CFCFCF">
+<SELECT onChange="this.form.seihin.value=this.options[this.selectedIndex].text">
+    <option value="" selected > </option>
+    <option value="池葉 緑" >池葉 緑</option>
+    <option value="宇佐美 康仁" >宇佐美 康仁</option>
+    <option value="大辻 みなみ" >大辻 みなみ</option>
+    <option value="佐藤 良美" >佐藤 良美</option>
+    <option value="真 広美" >真 広美</option>
+    <option value="谷口 英里" >谷口 英里</option>
+    <option value="中野 まり子" >中野 まり子</option>
+    <option value="町田 繁章" >町田 繁章</option>
+    <option value="三井 英史" >三井 英史</option>
+    <option value="山田 篤" >山田 篤</option>
+    <option value="八本 晋好" >八本 晋好</option>
+    <option value="李 洪圭" >李 洪圭</option>
+</SELECT>
+
 &nbsp;<B>組織化担当</B>：
 <select size=1 name="soshiki" STYLE="background-color:#ffffff;" >
     <option value="" selected > </option>
-    <option value="Cさん" >Cさん</option>
-    <option value="Dさん" >Dさん</option>
+    <option value="石郷岡 亮" >石郷岡 亮</option>
+    <option value="佐藤 浩晃" >佐藤 浩晃</option>
+    <option value="塩崎 泰久" >塩崎 泰久</option>
+    <option value="三穂 雅治" >三穂 雅治</option>
+    <option value="営推" >営推</option>
     </select>
 &nbsp;<B>CL担当</B>：
-<select size=1 name="cl" STYLE="background-color:#ffffff;" >
-    <option value="" selected > </option>
-    <option value="Eさん" >Eさん</option>
-    <option value="Fさん" >Fさん</option>
-    </select>
+<input type="text" name="seihin" list="cl" autocomplete="on">
+  <datalist id="cl">
+    <option value="">
+    <option value="池川 香澄">
+  　<option value="藤岡 朋子">
+  　<option value="佐藤 理子">
+  　<option value="皆川 理子">
+  　<option value="髙橋 江里子">
+  </datalist -->
 &emsp;
 <input type="button" value="ｸﾘｱ" onclick="clrbtn();">
 
@@ -131,12 +155,15 @@ require_once("../../com212/inc/const.inc");
 &nbsp;&nbsp;
 <B><input type=radio name=r1 value="za" >座長 <input type=radio name=r1 value="en">演者：</B>
 <input type="text" name="z" size=14 STYLE="border-style:none; background-color:#CFCFCF">
-
+&nbsp;
 <input type="button" value="検索" onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
+&nbsp;
+<B><input type=radio name=phase value="2008" >旧モード<input type=radio name=phase value="2018">新モード</B>
 
-</font>
+
 </td>
-<td width=9% align=right valign=top><input type="button" value="To Excel" onclick="SndWindow(2)">
+<td width=9% align=right valign=top>
+<input type="button" value="To Excel" onclick="SndWindow(2)"><br>
 <?php
 if ($_SESSION['param'] == $modec) {
 	print "<input type=\"button\" value=\"管理機能\" onclick=\"SndWindow(3);\">";
