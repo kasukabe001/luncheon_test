@@ -60,11 +60,13 @@ default:
 
 
 case 'Confirm':
+//$str = mb_convert_encoding($_POST['remark'], "UTF-8", "auto");
+
     //入力エラーチェック　エラーが無い時
 
     if ($qform->validate()) {
 //      $qform->freeze();
-	$postData = $qform->exportValues();
+//	$postData = $qform->exportValues();
 
     } else {
         //入力エラーチェック　エラーがあった時
@@ -91,7 +93,15 @@ case 'Confirm':
 	break;
     }
 
-	$postData = $qform->exportValues();
+//	$postData = $qform->exportValues();
+    //QFから渡されたPOSTデータを抽出
+    $beforePostData = $qform->exportValues();
+    //サニタイズ解除
+    foreach ($beforePostData as $key => $val) { 
+	$postData[$key] = unhtmlspecialchars($val);
+    }
+    // ラジオボタン、Selectの値が消えることへの措置
+	$postData['remark'] = $_POST['remark'];
 
 	//Uploadファイルの情報取得
 	// ファイル名
@@ -112,6 +122,14 @@ case 'Confirm':
 	   $sys_filename = "SYK" . $iso1 . $sys_num2 . "-" . $file_name; //同名対策
 	} else if ($postData['remark'] == "応諾書") {
 	   $sys_filename = "SYD" . $iso1 . $sys_num2 . "-" . $file_name;
+	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][5]) {
+	   $sys_filename = "SIS" . $iso1 . $sys_num2 . "-" . $file_name;
+	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][6]) {
+	   $sys_filename = "SEN" . $iso1 . $sys_num2 . "-" . $file_name;
+	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][7]) {
+	   $sys_filename = "SYW" . $iso1 . $sys_num2 . "-" . $file_name;
+	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][8]) {
+	   $sys_filename = "SML" . $iso1 . $sys_num2 . "-" . $file_name;
 	} else {
 	   $sys_filename = "SYS" . $iso1 . "-" . $iso2 . $extension;
 	}
@@ -134,6 +152,7 @@ case 'Confirm':
 	}
 
 	//Uploadファイルの情報取得と設定
+	$val=array();
 	$val["sys_filename"] = $sys_filename;
 	$val["org_filename"] = $_FILES['org_filename']['name'];
 	$val["sys_num"] = $sys_num;

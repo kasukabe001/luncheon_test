@@ -37,7 +37,7 @@
     <table width="680" cellpadding=2 cellspacing=1>
 	<tr height="27">
 	<td width="126" class="titleblock2" >種類</td>
-	<td width="460" class="titleblock" >{$form.remark.html}<div class="error">{$form.remark.error}</div>
+	<td width="460" class="titleblock" >{$form.remark.html}<div class="error">{$form.remark.error}</div></td>
 	</tr>
    </table>
 

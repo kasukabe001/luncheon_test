@@ -18,10 +18,10 @@ class UploadForm extends AppQuickForm
         // Study Group
         $aryRemark = array();
         $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][0], $GLOBALS['FILEKIND'][0] , $GLOBALS['FILEKIND'][0], array('id'=>'sg_flg0'));
-        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][1], $GLOBALS['FILEKIND'][1] , $GLOBALS['FILEKIND'][1], array('id'=>'sg_flg1'));
-        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][2], $GLOBALS['FILEKIND'][2] , $GLOBALS['FILEKIND'][2], array('id'=>'sg_flg2'));
-        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][3], $GLOBALS['FILEKIND'][3] , $GLOBALS['FILEKIND'][3], array('id'=>'sg_flg3'));
-        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][4], $GLOBALS['FILEKIND'][4] , $GLOBALS['FILEKIND'][4],array('id'=>'sg_flg4'));
+        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][5], $GLOBALS['FILEKIND'][5] , $GLOBALS['FILEKIND'][5], array('id'=>'sg_flg5'));
+        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][6], $GLOBALS['FILEKIND'][6] , $GLOBALS['FILEKIND'][6], array('id'=>'sg_flg6'));
+        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][7], $GLOBALS['FILEKIND'][7] , $GLOBALS['FILEKIND'][7], array('id'=>'sg_flg7'));
+        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][8], $GLOBALS['FILEKIND'][8] , $GLOBALS['FILEKIND'][8], array('id'=>'sg_flg8'));
         $this->addGroup($aryRemark, 'remark', 'File remark', "<br />");
 
         $this->addElement('file',     'org_filename',       'File name', array('size'=>40));

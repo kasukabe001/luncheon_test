@@ -48,9 +48,11 @@ if( $Error ) {
   exit;
 }
 
+$phase = substr($_GET['ifra'],7,1);
 require("../../com212/inc/const.inc");
 require("../../com212/inc/dbconnect.ini");
-require("../../com212/inc/pgselect2.ini");
+if ($phase=='1') require("../../com212/inc/pgselect2.ini");
+ else require("../../com212/inc/pgselect22018.ini");
 require("../../com212/inc/pgmetadata.ini");
 
 
@@ -70,8 +72,22 @@ require("../../com212/inc/pgmetadata.ini");
 <body onload="hide();rCheck();" onunload="TopWindowClose();" topmargin="0" leftmargin="0">
 
 <?php
+if ($phase=='1') {
+  class myPgSelect2 extends PgSelect2 {
+  function printUpdateTag($oid) {
+    global $PHP_SELF, $usersql, $offset, $num;
+    $usql = urlencode($usersql);
+    $cmod = $num % 2;
+    if ($cmod == 1) $cc="#FFA07A"; //f0f0f0 FFA07A
+	else $cc="#ffffff";
 
-class myPgSelect2 extends PgSelect2 {
+    print ("<td height=35 class=FreezingCol style =\"FONT:mspgothic; FONT-SIZE: 12px; COLOR: #0000ff; LINE-HEIGHT: 130%; BACKGROUND-COLOR: $cc;\" >");
+    print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
+    $num += 1;
+  }
+  }
+} else {
+  class myPgSelect22018 extends PgSelect22018 {
   function printUpdateTag($oid) {
     global $PHP_SELF, $usersql, $offset, $num;
     $usql = urlencode($usersql);
@@ -80,11 +96,12 @@ class myPgSelect2 extends PgSelect2 {
 	else $cc="#ffffff";
 
     print ("<td rowspan=2 class=standingsWin>");
-   print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
+    print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
     $num += 1;
   }
-
+  }
 }
+
 class myPgMetaData extends PgMetaData {
 }
 function myCheck($atrlist) {
@@ -114,7 +131,7 @@ $s1 = substr($_GET['ifra'],2,1);
 $r1 = substr($_GET['ifra'],3,1);
 $k1 = substr($_GET['ifra'],4,2);
 $z1 = substr($_GET['ifra'],6,1);
-$gk = substr($_GET['ifra'],7);
+$gk = substr($_GET['ifra'],8);
 $gk = urldecode($gk);
 
 // 2010.9 追加
@@ -287,7 +304,9 @@ $rows= $s->doSelect($m->makeSQL($sort,true),0);
 */
 
 } else if ($atrlist) {	// 最初のページ
-  $s = new myPgSelect2;
+  if ($phase=='1') $s = new myPgSelect2;
+   else $s = new myPgSelect22018;
+
   if ($_GET[usersql]) { // 2ページ目以降
 	$sqlimg = $_GET[usersql];
   } else { // 最初のページ

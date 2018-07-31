@@ -89,7 +89,11 @@ $FILEKIND = array(
     1 => '開示承諾書',
     2 => '応諾書',
     3 => '控室案内',
-    4 => 'CV'
+    4 => 'CV',
+    5 => 'syuisho',
+    6 => 'enquate',
+    7 => 'yakuwari',
+    8 => 'MR_mail',
 );
 
 

@@ -56,7 +56,7 @@ function doAction( strValue ) {
 //	obj.style.scrolling = "auto";
 
 	// IFRAME の内容をセット
-	var jouken="0000000";
+	var jouken="00000000";
 	if (strValue == 0) {
 //		document.headform.n[0].checked = false ;
 //		document.headform.n[1].checked = false ;
@@ -94,9 +94,9 @@ function paraMake() {
   snum="0";
   rnum="0";
   znum="0";
+  phase="0";
 
 // 年度
-//	nnum=document.headform.n.selectedIndex;
 	if (document.headform.n.selectedIndex <= 9 ) {
 	  nnum="0" + document.headform.n.selectedIndex;
 	} else if (document.headform.n.selectedIndex > 9 ) {
@@ -105,7 +105,6 @@ function paraMake() {
 
 
 // 進捗
-//	snum=document.headform.s.selectedIndex;
 	if (document.headform.s.selectedIndex == 1 ) {
 	  snum=1;
 	} else if (document.headform.s.selectedIndex == 2 ) {
@@ -126,7 +125,14 @@ function paraMake() {
 	  znum=2; // 演者
 	}
 
-	param = ""+nnum+snum+rnum+tnum+znum;
+// 新旧モード
+	if (document.headform.phase[0].checked == true ) {
+	  phase=1; // 2008年モード
+	} else if (document.headform.phase[1].checked == true ) {
+	  phase=2; // 2018年モード
+	}
+
+	param = ""+nnum+snum+rnum+tnum+znum+phase;
 	return (param);
 }
 
@@ -160,4 +166,3 @@ function clrbtn() {
 //CL担当
 	document.cl.h.value = "";
 }
-

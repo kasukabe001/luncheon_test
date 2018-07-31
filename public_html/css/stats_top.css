@@ -218,6 +218,9 @@ H3 {
 	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 130%; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
 }
 .standingsWin {
+	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #0000ff; LINE-HEIGHT: 130%; TEXT-ALIGN: left
+}
+.standingsWin2018 {
 	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; TEXT-ALIGN: left;
 }
 .standingsWinCenter {

@@ -1,6 +1,6 @@
 <?php
 //############################################################
-// part.php
+// part2018.php
 //############################################################
 // 1.ログイン後TOPページ表示
 // 2.インラインフレーム内に検索結果を表示
@@ -135,15 +135,15 @@ require_once("../../com212/inc/const.inc");
     <option value="営推" >営推</option>
     </select>
 &nbsp;<B>CL担当</B>：
-<input type="text" name="seihin" list="cl" autocomplete="on">
-  <datalist id="cl">
+<input type="text" name="cl" list="clmember" autocomplete="on">
+  <datalist id="clmember">
     <option value="">
-    <option value="池川 香澄">
-  　<option value="藤岡 朋子">
-  　<option value="佐藤 理子">
-  　<option value="皆川 理子">
-  　<option value="髙橋 江里子">
-  </datalist -->
+    <option value="池川 香澄">池川 香澄</option>
+  　<option value="藤岡 朋子">藤岡 朋子</option>
+  　<option value="佐藤 理子">佐藤 理子</option>
+  　<option value="皆川 理子">皆川 理子</option>
+  　<option value="髙橋 江里子">髙橋 江里子</option>
+  </datalist>
 &emsp;
 <input type="button" value="ｸﾘｱ" onclick="clrbtn();">
 
@@ -158,7 +158,7 @@ require_once("../../com212/inc/const.inc");
 &nbsp;
 <input type="button" value="検索" onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
 &nbsp;
-<B><input type=radio name=phase value="2008" >旧モード<input type=radio name=phase value="2018">新モード</B>
+<B><input type=radio name=phase value="2008" onclick="doAction(2);">旧モード<input type=radio name=phase value="2018" onclick="doAction(2);">新モード</B>
 
 
 </td>

@@ -60,15 +60,15 @@ $err_msg = "URLをご確認ください</a>";
 $kubun = trim($_db['junl']);
 if ($kubun=="pm") {
 	$_SESSION['param'] = $modea;
-	header("location: ./part2018.php?p=a2056d8903487584er8");
+	header("location: ./part.php?p=a2056d8903487584er8");
 	exit;
 } else if ($kubun=="as") {
 	$_SESSION['param'] = $modeb;
-	header("location: ./part2018.php?p=5c549rw87867667zvfsj");
+	header("location: ./part.php?p=5c549rw87867667zvfsj");
 	exit;
 } else if ($kubun=="cl") {
 	$_SESSION['param'] =$modec;
-	header("location: ./part2018.php?p=w601e05727868daklb78");
+	header("location: ./part.php?p=w601e05727868daklb78");
 	exit;
 }
 include ("../../com212/php/error_header.php");

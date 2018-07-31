@@ -86,7 +86,7 @@
   </tr>
   <tr>
     <td class="titleblock2" width="20%">特記事項</td>
-    <td width="80%" class="titleblock" colspan="3">{$form.tokki.html}</td>
+    <td width="80%" class="titleblock" colspan="3">{$form.tokkijiko.html}</td>
   </tr>
 </table>
 
@@ -219,7 +219,7 @@
     <td class="titleblock2b" width="20%" rowspan=2>製品担当</td>
     <td width="30%" class="titleblock" ><span class="letter9">氏名</span> {$form.sekinin.html}</td>
     <td class="titleblock2b" width="20%">組織化担当</td>
-    <td width="25%" class="titleblock"><span class="letter9">氏名</span> {$form.cltantou.html}</td>
+    <td width="25%" class="titleblock"><span class="letter9">氏名</span> {$form.soshiki.html}</td>
   </tr>
   <tr>
     <td width="30%" class="titleblock"></td>
@@ -227,7 +227,7 @@
     <td width="30%" class="titleblock"><span class="letter9">氏名</span> {$form.cltantou.html}</td>
   </tr>
   <tr>
-    <td class="titleblock2" width="20%">学会参加見込人数</td>
+    <td class="titleblock2" width="20%">学会参加見込み人数</td>
     <td width="30%" class="titleblock" >{$form.hotel.html}</td>
     <td class="titleblock2" width="20%" >学会会員数</td>
     <td width="30%" class="titleblock">{$form.yobi1.html}</td>
@@ -242,7 +242,7 @@
     <td class="titleblock2" width="20%" >録画録音</td>
     <td width="30%" class="titleblock" >{$form.syuroku.html}</td>
     <td class="titleblock2b" width="20%" >海外演者</td>
-    <td width="30%" class="titleblock" >{$form.syuroku.html}</td>
+    <td width="30%" class="titleblock" >{$form.kaigai.html}</td>
   </tr>
   <tr>
     <td class="titleblock2b" width="20%" >アンケート</td>
@@ -262,19 +262,19 @@
   </tr>
   <tr>
     <td class="titleblock2" width="20%">抄録有無</td>
-    <td width="30%" class="titleblock">{$form.syoroku.html}</td>
+    <td width="30%" class="titleblock">{$form.syoroku_umu.html}</td>
     <td class="titleblock2" width="20%" class="titleblock">文字制限</td>
-    <td width="30%" class="titleblock">{$form.moji_limit.html} <span class="letter9">文字以内</span></td>
+    <td width="30%" class="titleblock">{$form.syoroku_seigen.html} <span class="letter9">文字以内</span></td>
   </tr>
   <tr>
-    <td width="20%" class="titleblock2b">進捗状況</td>
-    <td width="30%" class="titleblock">{$form.sintyoku.html}</td>
+    <td width="20%" class="titleblock2b">抄録進捗</td>
+    <td width="30%" class="titleblock">{$form.syoroku.html}</td>
     <td class="titleblock2" width="20%"></td>
     <td width="30%" class="titleblock"></td>
   </tr>
   <tr>
     <td class="titleblock2" width="20%">演題登録ページURL</td>
-    <td width="80%" class="titleblock" colspan="3">{$form.endai_url.html} <font size="2">例）http://www.endai.jp</font></td>
+    <td width="80%" class="titleblock" colspan="3">{$form.syoroku_url.html} <font size="2">例）http://www.endai.jp</font></td>
   </tr>
 </table>
 
@@ -287,13 +287,13 @@
     <td class="titleblock2b" width="20%">趣意書入手</td>
     <td width="30%" class="titleblock">{$form.yoko.html}</td>
     <td class="titleblock2b" width="20%" >セミナー申込日</td>
-    <td width="30%" class="titleblock">{$form.mousi_add.html}</td>
+    <td width="30%" class="titleblock">{$form.seminar_mousi.html}</td>
   </tr>
   <tr>
     <td class="titleblock2b" width="20%">役割者決定</td>
-    <td width="30%" class="titleblock">{$form.yakubun1.html}</td>
-    <td class="titleblock2" width="20%" >LS事前申込</td>
-    <td width="30%" class="titleblock">{$form.ls_mousi.html}</td>
+    <td width="30%" class="titleblock">{$form.yakuketsu.html}</td>
+    <td class="titleblock2b" width="20%" >LS事前申込</td>
+    <td width="30%" class="titleblock">{$form.mousi_k.html}</td>
   </tr>
   <tr>
     <td class="titleblock2" width="20%">1stメール(API)</td>
@@ -319,7 +319,7 @@
     <td width="20%" class="titleblock2">追加申込締切</td>
     <td width="30%" class="titleblock">{$form.mousi_c.html}</td>
     <td width="20%" class="titleblock2b">アンケート作成依頼</td>
-    <td width="30%" class="titleblock">{$form.make_enq.html}</td>
+    <td width="30%" class="titleblock">{$form.anquete_make.html}</td>
   </tr>
   <tr>
     <td class="titleblock2" width="20%">控室名</td>
@@ -329,11 +329,13 @@
   </tr>
   <tr>
     <td class="titleblock2" width="20%">控室使用時間</td>
-    <td width="80%" class="titleblock" colspan=3>{$form.hikae_t.html}</td>
+    <td width="80%" class="titleblock">{$form.hikae_t.html}</td>
+    <td class="titleblock2" width="20%">当日配布物手配</td>
+    <td width="30%" class="titleblock">{$tojitu}{$form.tojitu.html}{$etojitu}</td>
   </tr>
   <tr>
     <td class="titleblock2b" width="20%">資材発注</td>
-    <td width="30%" class="titleblock">{$form.tojitu.html}</td>
+    <td width="30%" class="titleblock">{$form.sizai_order.html}</td>
     <td width="20%" class="titleblock2b">分担表送付</td>
     <td width="30%" class="titleblock">{$form.yakubun2.html}</td>
   </tr>

@@ -32,7 +32,7 @@ class BasicForm extends AppQuickForm
 
         $this->addElement('text', 'place', '会場', array('size'=>90, 'maxlength'=>100));
         $this->addElement('text', 'room', '部屋', array('size'=>90, 'maxlength'=>100)); // 2018
-        $this->addElement('text', 'mousi_add', 'セミナー申込日', array('size'=>20, 'maxlength'=>24)); // 2018
+        $this->addElement('textarea', 'tokkijiko', '特記事項',  array("cols"=>62, "rows"=>2, 'style'=>'ime-mode:active;')); // 2018
 
 
         $this->addElement('text', 'syukan', '共催', array('size'=>37, 'maxlength'=>48,'style'=>'ime-mode:active;background-color:#e6e6fa;','ondblclick'=>'doDialogAll(this.form,11)'));
@@ -98,7 +98,7 @@ class BasicForm extends AppQuickForm
 //      $this->addElement('text', 'sec_name', '事務局業者',array('size'=>92, 'maxlength'=>100));
 
         $this->addElement('text', 'sekinin', 'Astellas責任者', array('size'=>20, 'maxlength'=>24,'style'=>'ime-mode:active;'));
-        $this->addElement('text', 'sosiki', '組織化担当', array('size'=>20, 'maxlength'=>24,'style'=>'ime-mode:active;')); //2018
+        $this->addElement('text', 'soshiki', '組織化担当', array('size'=>20, 'maxlength'=>24,'style'=>'ime-mode:active;')); //2018
         $this->addElement('text', 'cltantou', 'ＣＬ窓口', array('size'=>20, 'maxlength'=>24,'style'=>'ime-mode:active;'));
 
         $this->addElement('text', 'hotel', '学会参加見込人数',array('size'=>20, 'maxlength'=>24,'style'=>'ime-mode:inactive;'));
@@ -110,7 +110,7 @@ class BasicForm extends AppQuickForm
         $aryAnq[] = $this->createElement('radio', null, "有", "有", "有", array('id'=>'anq0'));
         $aryAnq[] = $this->createElement('radio', null, "無", "無", "無", array('id'=>'anq1'));
         $this->addGroup($aryAnq, 'anquete', 'アンケート有無', "&nbsp;&nbsp;");
-        $this->addElement('text', 'make_enq', 'アンケート作成日', array('size'=>20, 'maxlength'=>24)); // 2018
+        $this->addElement('text', 'anquete_make', 'アンケート作成日', array('size'=>20, 'maxlength'=>24)); // 2018
 	// 収録
 	$aryKiroku = array();
         $aryKiroku[] = $this->createElement('radio', null, "有", "有", "有", array('id'=>'syur0'));
@@ -123,7 +123,6 @@ class BasicForm extends AppQuickForm
         $this->addGroup($aryKaigai, 'kaigai', '海外演者', "&nbsp;&nbsp;"); // 2018
 
         $this->addElement('textarea', 'cl1', 'メモ1',  array("cols"=>62, "rows"=>4, 'style'=>'ime-mode:active;'));
-
         $this->addElement('select', 'status', '年度', array(""=>"▼選択") + $GLOBALS['STATUS']);
 
 
@@ -135,21 +134,26 @@ class BasicForm extends AppQuickForm
         $this->addElement('text', 'tirasi1', 'チラシ作成依頼', array('size'=>20, 'maxlength'=>24));
         $this->addElement('text', 'tirasi2', 'チラシ経過・完成', array('size'=>20, 'maxlength'=>24));
         $this->addElement('text', 'tirasi3', 'チラシ納品日', array('size'=>20, 'maxlength'=>24));
-        $this->addElement('text', 'ls_mousi', 'LS申込', array('size'=>20, 'maxlength'=>24)); // 2018
-        $this->addElement('text', 'yoko', '趣意書入手', array('size'=>20, 'maxlength'=>24)); // 2018
-        $this->addElement('text', 'yakubun1', '役割者決定', array('size'=>20, 'maxlength'=>24)); // 2018
-
+        $this->addElement('text', 'mousi_k', 'LS申込', array('size'=>20, 'maxlength'=>24)); // 2018復活
+        $this->addElement('text', 'yoko', '趣意書入手', array('size'=>20, 'maxlength'=>24)); // 2018復活
+        $this->addElement('text', 'yakuketsu', '役割者決定', array('size'=>20, 'maxlength'=>24)); // 2018
+        $this->addElement('text', 'seminar_mousi', 'セミナー申込日', array('size'=>20, 'maxlength'=>24)); // 2018
         $this->addElement('text', 'mousi_c', '追加申込締切', array('size'=>20, 'maxlength'=>24));
-        $this->addElement('text', 'syoroku', '抄録締', array('size'=>20, 'maxlength'=>36));
-        $this->addElement('text', 'moji_limit', '文字制限', array('size'=>8, 'maxlength'=>20)); // 2018
-        $this->addElement('text', 'endai_url', '演題登録ページURL', array('size'=>68, 'maxlength'=>100)); // 2018
+//        $this->addElement('text', 'sintyoku', '抄録進捗', array('size'=>20, 'maxlength'=>36));
+	$arySyoroku = array();
+        $arySyoroku[] = $this->createElement('radio', null, "有", "有", "有", array('id'=>'syoroku0'));
+        $arySyoroku[] = $this->createElement('radio', null, "無", "無", "無", array('id'=>'syoroku1'));
+        $this->addGroup($arySyoroku, 'syoroku_umu', '抄録有無', "&nbsp;&nbsp;");// 2018
+        $this->addElement('text', 'syoroku_seigen', '文字制限', array('size'=>8, 'maxlength'=>20)); // 2018
+        $this->addElement('text', 'syoroku_url', '演題登録ページURL', array('size'=>68, 'maxlength'=>100)); // 2018
 
         $this->addElement('text', 'hikae_k', '控室名', array('size'=>20, 'maxlength'=>36, 'style'=>'ime-mode:active;'));
         $this->addElement('text', 'hikae_t', '控室使用時間', array('size'=>20, 'maxlength'=>36));
         $this->addElement('text', 'hikae_a', '控室案内', array('size'=>20, 'maxlength'=>36));
-        $this->addElement('select', 'sintyoku', '進捗状況', array(""=>"▼選択") + $GLOBALS['PROGRESS_STATUS']); // 2018
+        $this->addElement('select', 'syoroku', '抄録進捗', array(""=>"▼選択") + $GLOBALS['PROGRESS_STATUS']); // 2018
 
         $this->addElement('text', 'tojitu', '当日配布物手配', array('size'=>20, 'maxlength'=>24));
+        $this->addElement('text', 'sizai_order', '進捗状況', array('size'=>20, 'maxlength'=>24)); // 2018
         $this->addElement('text', 'yakubun2', '分担表最終版送付', array('size'=>20, 'maxlength'=>24));
         $this->addElement('text', 'bento', '弁当数', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;'));
         $this->addElement('text', 'sizaisu', '資材数', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;'));
