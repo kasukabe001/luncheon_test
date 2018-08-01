@@ -684,33 +684,44 @@ function ErrorLog($mod,$typ,$arr) {
 
 
 /**
- * 変更Error logの出力
+ * 日付解体
  *
  * $UpdateErrorLog('r','a',$id,$arr)
  */
-/*
-function UpdateErrorLog($mod,$typ,$id,$arr) {
-    mb_language("Japanese");
-    mb_internal_encoding("SJIS");
-
-    $filename = _LOG_DIR_ . "error.log";
-    $outstr = date("Y-n-j H:i:s") . ":" . $mod . $typ . ":" . $id ."\n";
-
-    foreach ($arr as $key => $value) { 
-	$outstr .= $key; 
-	foreach ($arr[$key] as $key2 => $val2) { 
-	    $outstr .= "[" . $key2 . "]" . $val2. " ";
+function AutoCalcDate($kaisaibi){
+	$weekjp_array = array('日', '月', '火', '水', '木', '金', '土');
+	$banban = explode("/", $kaisaibi);
+	if (strlen($banban[0]) == 4 ) {
+		$dAry['y']=$banban[0]; // 年が4桁のとき
+//		$dAry['y']=substr($banban[0],2,2); // 年が4桁のとき
+	} else {
+		$dAry['y']="20" . $banban[0];
+//		$dAry['y']=$banban[0];
 	}
-	$outstr .= "\n"; 
-    }
+	if (substr($banban[1],0,1) == "0" ) {
+		$dAry['m']=substr($banban[1],1,1);
+	} else {
+		$dAry['m']=$banban[1];
+	}
+	if (substr($banban[2],0,1) == "0" ) {
+		$dAry['d']=substr($banban[2],1,1);
+	} else {
+		$dAry['d']=substr($banban[2],0,2);
+	}
 
-    $fp = fopen($filename,"a+");
-    fputs($fp,$outstr);
-    fclose($fp);
-
-    return;
+//	$pyear = "20" . $dAry['y'];
+	$pyear = $dAry['y'];
+	$ptimestamp = mktime(0, 0, 0, $dAry['m'], $dAry['d'], $pyear);
+	$weekno = date('w', $ptimestamp);
+	$dAry['w']= $weekjp_array[$weekno];
+//	$dAry['kaisaibi']= date('Y/m/d', $ptimestamp);
+	$dAry['before97']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-97, $pyear));
+	$dAry['before100']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-100, $pyear));
+	$dAry['before103']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-103, $pyear));
+	$dAry['before1month']= date('y/m/d', mktime(0, 0, 0, $dAry['m']-1, $dAry['d'], $pyear));
+	return $dAry;
 }
-*/
+
 
 
 

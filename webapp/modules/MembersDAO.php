@@ -1347,50 +1347,6 @@ class MembersDAO extends DAO
 
 
     /**
-     * メンバーID(PRIMARY KEY)の取得
-     *
-     * @param  string $uid
-     * @param  string $wpd
-     * @return string $row['members_id']
-     */
-/*
-    function getMembersId($uid, $pwd)
-    {
-        $row = $this->loginAuth($uid, $pwd);
-    return $row['members_id'];
-    }
-*/
-
-
-
-    /**
-     * 排他ロック
-     *
-     * @param  string $id
-     * @param  string $field_name members_id 固定
-     * @return array
-     */
-/* 動作しない
-    function LockById($id, $field_name='members_id')
-    {
-        if ($this->getError() !== null) {return "NG";}
-
-        $sql =& $this->con->prepare('SELECT * FROM ' . $this->table . ' WHERE ' . $field_name . ' = ? for update nowait');
-        $res =& $this->con->execute($sql, $id);
-
-        if (DB::isError($res)) {
-            $this->setError($res->getMessage()." (".__LINE__.")");
-	    print $res->getDebugInfo();
-    	    die($res->getMessage());
-            return "NG";
-        }
-
-    return;
-    }
-*/
-
-
-    /**
      * 人工排他ロック
      *
      * @param  string $semi_id
@@ -1513,6 +1469,31 @@ class MembersDAO extends DAO
     }
 
 
+
+    /**
+     * 担当者選択メニュー用配列を返す
+     * @param  integer $val 0:製品責任者 1:組織化担当 2:CL担当者
+     * @return array $ary
+     */
+    function getTantouMembers($val=null)
+    {
+        if ($this->getError() !== null) {return;}
+
+	if ($val==1) $tblname = sy_soshiki;
+	 elseif ($val==2) $tblname = sy_linkage;
+	 else $tblname = sy_seihin;
+
+	$sql =& $this->con->prepare("SELECT name FROM " . $tblname . " ORDER BY id"); 
+        $res =& $this->con->execute($sql);
+
+        $ary = array();
+        while ($row =& $res->fetchRow(DB_FETCHMODE_ASSOC)) {
+	    $val = $row['name'];
+	    $ary[$val] = $row['name'];
+        }
+
+    return $ary;
+    }
 
 
 }

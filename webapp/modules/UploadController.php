@@ -158,7 +158,7 @@ case 'Confirm':
 	$val["sys_num"] = $sys_num;
 	$val["sys_folder"] = $iso1;
 	$val["filesize"] = $_FILES['org_filename']['size'];
-	$val["remark"] = $postData['remark'];
+	$val["remark"] = $postData['remark'] ;
 
 	$updbh->con->autoCommit( false ); // 自動コミット解除(トランザクション開始)
 	// DB登録 
@@ -167,7 +167,7 @@ case 'Confirm':
 	//DBへ追加が成功すれば(errorがnullなら)
 	if ($updbh->getError() === null) {
 	    // ファイルアップロードとリネームを行う
-	    $sys_filename = mb_convert_encoding($sys_filename, "SJIS", "AUTO");// 日本語文字化け対策
+//	    $sys_filename = mb_convert_encoding($sys_filename, "SJIS", "AUTO");// 日本語文字化け対策
 //	    $point = _UPLOAD_DIR_ . $iso1 . "/" . $sys_filename;
 	    $point = $uploaddir . $iso1 . "/" . $sys_filename;
 

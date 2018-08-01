@@ -181,7 +181,17 @@ case 'Direct':
      unset($postData['encs_id5'],$postData['encs_id6'],$postData['encs_id7'],$postData['encs_id8']);
     }
     $diffA = diff_Column( $beforeData,$postData);
-//    print_r($diffA);
+    //予定日の自動設定
+    if (in_array("kaisaibi",$diffA)) {
+	array_push($diffA,"amail_yotei","annai2_yotei","yakuketsu_yotei","hikae_a_yotei");
+//	$diffA[]='annai2_yotei';
+	$dayAry = AutoCalcDate($postData['kaisaibi']); // 日付分断
+	$postData['amail_yotei']=$dayAry['before100'];
+	$postData['annai2_yotei']=$dayAry['before97'];
+	$postData['yakuketsu_yotei']=$dayAry['before103'];
+	$postData['hikae_a_yotei']=$dayAry['before1month'];
+    }
+
     //変更がなければ
     if (count($diffA) == 0) {
         $this->renderer->assign('error', "NoData");

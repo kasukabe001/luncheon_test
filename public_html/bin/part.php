@@ -103,46 +103,42 @@ require_once("../../com212/inc/const.inc");
 <input type="text" name="h" size=10 STYLE="border-style:none; background-color:#CFCFCF">
 
 &nbsp;<B>製品担当</B>：
-<!-- select size=1 name="seihin" STYLE="background-color:#ffffff;" >
-    <option value="" selected > </option>
-    <option value="Aさん" >Aさん</option>
-    <option value="Bさん" >Bさん</option>
-    </select -->
-<INPUT TYPE=text NAME=seihin size=10 STYLE="border-style:none; background-color:#CFCFCF">
-<SELECT onChange="this.form.seihin.value=this.options[this.selectedIndex].text">
-    <option value="" selected > </option>
-    <option value="池葉 緑" >池葉 緑</option>
-    <option value="宇佐美 康仁" >宇佐美 康仁</option>
-    <option value="大辻 みなみ" >大辻 みなみ</option>
-    <option value="佐藤 良美" >佐藤 良美</option>
-    <option value="真 広美" >真 広美</option>
-    <option value="谷口 英里" >谷口 英里</option>
-    <option value="中野 まり子" >中野 まり子</option>
-    <option value="町田 繁章" >町田 繁章</option>
-    <option value="三井 英史" >三井 英史</option>
-    <option value="山田 篤" >山田 篤</option>
-    <option value="八本 晋好" >八本 晋好</option>
-    <option value="李 洪圭" >李 洪圭</option>
-</SELECT>
+<input type="text" name="seihin" list="seihinmember" autocomplete="on" size=14>
+  <datalist id="seihinmember">
+    <option value="" >
+    <option value="池葉 緑" >
+    <option value="宇佐美 康仁" >
+    <option value="大辻 みなみ" >
+    <option value="佐藤 良美" >
+    <option value="真 広美" >
+    <option value="谷口 英里" >
+    <option value="中野 まり子" >
+    <option value="町田 繁章" >
+    <option value="三井 英史" >
+    <option value="山田 篤" >
+    <option value="八本 晋好" >
+    <option value="李 洪圭" >
+  </datalist>
 
 &nbsp;<B>組織化担当</B>：
-<select size=1 name="soshiki" STYLE="background-color:#ffffff;" >
-    <option value="" selected > </option>
-    <option value="石郷岡 亮" >石郷岡 亮</option>
-    <option value="佐藤 浩晃" >佐藤 浩晃</option>
-    <option value="塩崎 泰久" >塩崎 泰久</option>
-    <option value="三穂 雅治" >三穂 雅治</option>
-    <option value="営推" >営推</option>
-    </select>
+<input type="text" name="soshiki" list="soshikimember" autocomplete="on" size=14>
+  <datalist id="soshikimember">
+    <option value="">
+    <option value="石郷岡 亮" >
+    <option value="佐藤 浩晃" >
+    <option value="塩崎 泰久" >
+    <option value="三穂 雅治" >
+    <option value="営推" >
+  </datalist>
 &nbsp;<B>CL担当</B>：
-<input type="text" name="cl" list="clmember" autocomplete="on">
+<input type="text" name="cl" list="clmember" autocomplete="on" size=14>
   <datalist id="clmember">
     <option value="">
-    <option value="池川 香澄">池川 香澄</option>
-  　<option value="藤岡 朋子">藤岡 朋子</option>
-  　<option value="佐藤 理子">佐藤 理子</option>
-  　<option value="皆川 理子">皆川 理子</option>
-  　<option value="髙橋 江里子">髙橋 江里子</option>
+    <option value="池川 香澄">
+  　<option value="藤岡 朋子">
+  　<option value="佐藤 理子">
+  　<option value="皆川 理子">
+  　<option value="髙橋 江里子">
   </datalist>
 &emsp;
 <input type="button" value="ｸﾘｱ" onclick="clrbtn();">

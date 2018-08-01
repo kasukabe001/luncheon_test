@@ -121,7 +121,11 @@ $STATUS = array(
 $PROGRESS_STATUS = array(
     '準備中' => '準備中',
     '進行中' => '進行中',
-    '締切済' => '締切済'
+    '締切済' => '締切済',
+    '抄録受付中' => '抄録受付中',
+    '抄録締切済' => '抄録締切済',
+    '一部演者 抄録未入手' => '一部演者 抄録未入手',
+    '全演者 抄録入手済' => '全演者 抄録入手済',
 );
 
 //管理者名リスト
@@ -129,16 +133,6 @@ $ADMIN_NAME_LIST = array(
     _ADMIN2_AUTH_FLG_ => 'GakuJou',
     _ADMIN3_AUTH_FLG_ => 'CL'
 );
-
-
-/*
-//操作履歴で使用する
-$OPERATION_TYPE = array(
-    'a' => array('ja'=>'登録', 'en'=>'Add'),
-    'e' => array('ja'=>'変更', 'en'=>'Edit'),
-    'd' => array('ja'=>'削除', 'en'=>'Delete')
-);
-*/
 
 
 
@@ -180,35 +174,6 @@ $PC_USE = array(
 );
 
 
-/*
-//CSV用 modify editor
-$CSV_MODIFY_EDITOR = array(
-    _ADMIN1_AUTH_FLG_ => 'KLL',
-    _ADMIN3_AUTH_FLG_ => 'CL事務局',
-    _USER_AUTH_FLG_   => '講演者本人',
-);
-*/
-
-//CSV用 lang
-/*
-$CSV_LANGUAGE = array(
-    'ja' => '日本語',
-    'en' => '英語',
-);
-*/
-
-/**
- * エラーメッセージ
- *
- */
-//メール送信に失敗した時
-/*
-$ERROR_SEND_MAIL = array(
-    'ja'=>'メールが正しく送信されいない可能性があります。',
-    'en'=>'Error!'
-);
-*/
-
 //DB登録を失敗時
 $ERROR_ADD_DB = array(
     'ja'=>'データベースへの登録に失敗しました。',
@@ -242,60 +207,4 @@ $TYPE_NAME_LABEL = array(
     'Add'  => array('ja'=>'登録', 'en'=>'Registration'),
     ''     => array('ja'=>'登録', 'en'=>'Registration'),
 );
-
-// メール本文埋め込み用配列
-$MAIL_REPLACE = array(
-	'members_id',
-	'booth_flg',
-	'panel_flg',
-	'seminar_flg',
-	'reg_date',
-
-	'forum_type_mst',
-
-        'family_name',
-        'first_name',
-        'division',
-        'job_title',
-        'tel',
-        'naisen',
-        'email',
-	'uid',
-
-	'hpurl',
-	'name_sei1',
-	'name_na1',
-	'jobgrade1',
-	'tel1',
-	'email1',
-	'name_sei2',
-	'name_na2',
-	'jobgrade2',
-	'tel2',
-	'email2',
-
-	'kenkyub_ja',
-	'kenkyub_en',
-	'gaiyob_ja',
-	'gaiyob_en',
-	'boothm',
-	'boothl',
-	'bcategory',
-	'bsubcate',
-
-	'kenkyup_ja',
-	'kenkyup_en',
-	'gaiyop_ja',
-	'gaiyop_en',
-	'panel',
-	'pcategory',
-	'psubcate',
-
-	'smtitle_ja',
-	'smtitle_en',
-	'smtime',
-	'scategory',
-	'tokensave'
-);
-
 ?>

@@ -129,13 +129,16 @@ class BasicForm extends AppQuickForm
 /* ***********************************
    進捗情報
 *********************************** */
+        $this->addElement('text', 'amail_yotei', '案内メールAPI予定日', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;border: none;',readonly)); // 2018
         $this->addElement('text', 'amail', '案内メールAPI', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;'));
-        $this->addElement('text', 'annai2', '案内状送付CL', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;'));
+        $this->addElement('text', 'annai2_yotei', 'MR宛mail予定日', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;border: none;',readonly)); // 2018
+        $this->addElement('text', 'annai2', 'MR宛mail', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;'));
         $this->addElement('text', 'tirasi1', 'チラシ作成依頼', array('size'=>20, 'maxlength'=>24));
         $this->addElement('text', 'tirasi2', 'チラシ経過・完成', array('size'=>20, 'maxlength'=>24));
         $this->addElement('text', 'tirasi3', 'チラシ納品日', array('size'=>20, 'maxlength'=>24));
         $this->addElement('text', 'mousi_k', 'LS申込', array('size'=>20, 'maxlength'=>24)); // 2018復活
         $this->addElement('text', 'yoko', '趣意書入手', array('size'=>20, 'maxlength'=>24)); // 2018復活
+        $this->addElement('text', 'yakuketsu_yotei', '役割者決定予定日', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;border: none;',readonly)); // 2018
         $this->addElement('text', 'yakuketsu', '役割者決定', array('size'=>20, 'maxlength'=>24)); // 2018
         $this->addElement('text', 'seminar_mousi', 'セミナー申込日', array('size'=>20, 'maxlength'=>24)); // 2018
         $this->addElement('text', 'mousi_c', '追加申込締切', array('size'=>20, 'maxlength'=>24));
@@ -149,6 +152,7 @@ class BasicForm extends AppQuickForm
 
         $this->addElement('text', 'hikae_k', '控室名', array('size'=>20, 'maxlength'=>36, 'style'=>'ime-mode:active;'));
         $this->addElement('text', 'hikae_t', '控室使用時間', array('size'=>20, 'maxlength'=>36));
+        $this->addElement('text', 'hikae_a_yotei', '控室案内予定日', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;border: none;',readonly)); // 2018
         $this->addElement('text', 'hikae_a', '控室案内', array('size'=>20, 'maxlength'=>36));
         $this->addElement('select', 'syoroku', '抄録進捗', array(""=>"▼選択") + $GLOBALS['PROGRESS_STATUS']); // 2018
 
@@ -160,6 +164,15 @@ class BasicForm extends AppQuickForm
         $this->addElement('text', 'sizaino', '資材No', array('size'=>20, 'maxlength'=>24));
         $this->addElement('textarea', 'cl2', 'メモ2',  array("cols"=>62, "rows"=>4, 'style'=>'ime-mode:active;'));
 
+// require_once _MODULE_DIR_ . 'MembersDAO.php';
+$dbh =& new MembersDAO();
+$sekinin_members=$dbh->getTantouMembers(1);
+$soshiki_members=$dbh->getTantouMembers(2);
+$cltantou_members=$dbh->getTantouMembers(3);
+
+        $this->addElement('select', 'sekinin_menu', '製品担当選択', array(""=>"") + $sekinin_members,array('onChange'=>'this.form.sekinin.value=this.options[this.selectedIndex].text'));
+        $this->addElement('select', 'soshiki_menu', '組織化担当選択', array(""=>"") + $soshiki_members,array('onChange'=>'this.form.soshiki.value=this.options[this.selectedIndex].text'));
+        $this->addElement('select', 'cltantou_menu', 'CL担当選択', array(""=>"") + $cltantou_members,array('onChange'=>'this.form.cltantou.value=this.options[this.selectedIndex].text'));
 
 /* ***********************************
    開催結果

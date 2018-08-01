@@ -28,6 +28,7 @@ class UploadDAO extends DAO
     function initialize()
     {
         $this->getConnect();
+        $sql2 =& $this->con->query('set names utf8');
     }
 
 

@@ -25,23 +25,19 @@ td {
 
 }
 .titleblock_t {
-/*	background-color: #fffff0; font-size: 10pt; */
 	background-color: #fffff0; font-size: 11pt;
 	border-bottom:solid 1px #333333;
 }
 .titleblock2 { /* 項目名 */
-/*	background-color: #FFDE9B; TEXT-ALIGN: center ;FONT-SIZE:11pt; */
 	background-color: #FFDE9B; color:#000000; font-size:11pt;
 	border-bottom:solid 1px #333333;
 	}
-.titleblock2b { /* 項目名 未使用 */
+.titleblock2b { /* 項目名 */
 	background-color: #FFDE9B; color:#000000; font-size:11pt; 
-    font-weight:bold;
-/*	background-color: #FFDE9B; color:#0000ff; font-size:11pt; */
+	font-weight:bold;
 	border-bottom:solid 1px #333333;
 	}
 .titleblock3 {
-/*	background-color: #ffcc66;cellPadding:2; FONT-SIZE:11pt; */
 	background-color: #ffffff;cellPadding:2; FONT-SIZE:13pt;
 	text-align:center;font-weight:bold;
 	border-bottom:solid 1px #333333;
