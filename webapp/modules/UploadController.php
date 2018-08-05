@@ -60,7 +60,6 @@ default:
 
 
 case 'Confirm':
-//$str = mb_convert_encoding($_POST['remark'], "UTF-8", "auto");
 
     //入力エラーチェック　エラーが無い時
 
@@ -101,7 +100,8 @@ case 'Confirm':
 	$postData[$key] = unhtmlspecialchars($val);
     }
     // ラジオボタン、Selectの値が消えることへの措置
-	$postData['remark'] = $_POST['remark'];
+	$postData['remark'] = $GLOBALS['FILEKIND'][$_POST['remark']];
+
 
 	//Uploadファイルの情報取得
 	// ファイル名
@@ -119,19 +119,21 @@ case 'Confirm':
 	$iso2 = sprintf("%03d", $sys_num);
 	$sys_num2 = sprintf("%02d", $sys_num);
 	if ($postData['remark'] == "開示承諾書") {
-	   $sys_filename = "SYK" . $iso1 . $sys_num2 . "-" . $file_name; //同名対策
+	   $sys_filename = "SYK" . $iso1 . $sys_num2 . "-" . $file_name; //同名対策(フォルダ内で明細番号))
 	} else if ($postData['remark'] == "応諾書") {
 	   $sys_filename = "SYD" . $iso1 . $sys_num2 . "-" . $file_name;
+	} else if ($postData['remark'] == "伝票") {
+	   $sys_filename = "DEN" . $iso1 . $sys_num2 . "-" . $file_name;
 	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][5]) {
-	   $sys_filename = "SIS" . $iso1 . $sys_num2 . "-" . $file_name;
+	   $sys_filename = $iso1 . $sys_num2 . "-" . $file_name;
 	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][6]) {
-	   $sys_filename = "SEN" . $iso1 . $sys_num2 . "-" . $file_name;
+	   $sys_filename = $iso1 . $sys_num2 . "-" . $file_name;
 	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][7]) {
-	   $sys_filename = "SYW" . $iso1 . $sys_num2 . "-" . $file_name;
+	   $sys_filename = $iso1 . $sys_num2 . "-" . $file_name;
 	} else if ($postData['remark'] == $GLOBALS['FILEKIND'][8]) {
-	   $sys_filename = "SML" . $iso1 . $sys_num2 . "-" . $file_name;
+	   $sys_filename = $iso1 . $sys_num2 . "-" . $file_name;
 	} else {
-	   $sys_filename = "SYS" . $iso1 . "-" . $iso2 . $extension;
+	   $sys_filename = $iso1 . "-" . $iso2 . $extension;
 	}
 
 	// ディレクトリの存在チェック
@@ -167,8 +169,7 @@ case 'Confirm':
 	//DBへ追加が成功すれば(errorがnullなら)
 	if ($updbh->getError() === null) {
 	    // ファイルアップロードとリネームを行う
-//	    $sys_filename = mb_convert_encoding($sys_filename, "SJIS", "AUTO");// 日本語文字化け対策
-//	    $point = _UPLOAD_DIR_ . $iso1 . "/" . $sys_filename;
+	    $sys_filename = mb_convert_encoding($sys_filename, "SJIS", "AUTO");// 日本語文字化け対策
 	    $point = $uploaddir . $iso1 . "/" . $sys_filename;
 
 	    if (is_uploaded_file($_FILES['org_filename']['tmp_name'])) {

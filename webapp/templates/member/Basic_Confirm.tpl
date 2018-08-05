@@ -4,10 +4,10 @@
 {$form.hidden}
 
 <input type="hidden" name="semi_id" value="{$semi_id}">
-<TABLE cellSpacing=1 cellPadding=2 width=680 border=0>
+<TABLE cellSpacing=1 cellPadding=4 width=680 border=0>
   <TR>
-    <TD class=titleblock3 height=21 colspan=3>基本情報 (ID:{$smarty.session.semi_id})</TD>
-    <TD class=titleblock3 height=21 >最終更新日 {$smarty.session.last_date}</TD>
+    <TD class=titleblock3 colspan=3>基本情報 (ID:{$smarty.session.semi_id})</TD>
+    <TD class=titleblock3 >最終更新日 {$smarty.session.last_date}</TD>
   </TR>
   <tr>
     <td class="titleblock2b" width="25%">学会名 <font size="2" color="#FF0000">*</font></td>            <td width="75%" class="titleblock" colspan="3">{$gakkai}{$form.gakkai.html}{$egakkai}</td>
@@ -54,8 +54,10 @@
     <td width="75%" class="titleblock" colspan="3">{$tokkijiko}{$form.tokkijiko.html}{$etokkijiko}</td>
   </tr>
 </table>
-
-<table cellSpacing=1 cellPadding=2 width=680 >
+<table cellSpacing=1 cellPadding=4 width=680 >
+  <TR>
+    <TD class="titleblock3" colspan=4 ></TD>
+  </TR>
   <tr>
     <td class="titleblock2" width="25%">座長1</td>
     <td width="25%" class="titleblock_t">{$chair1}{$form.chair1.html}{$echair1}</td>
@@ -70,7 +72,7 @@
 
 <span class="accordion_head"><input type="button" name="e1" value="追加"></span>
 <div> 
-<table cellSpacing=1 cellPadding=2 width=680 >
+<table cellSpacing=1 cellPadding=4 width=680 >
   <tr>
     <td class="titleblock2" width="25%">座長3</td>
     <td width="25%" class="titleblock_t">{$chair3}{$form.chair3.html}{$echair3}</td>
@@ -79,11 +81,11 @@
 </table>
 </div> 
 
-<table cellSpacing=1 cellPadding=2 width=680 >
+<table cellSpacing=1 cellPadding=4 width=680 >
   <tr>
-    <td class="titleblock2" width="25%" >演者1</td>
-    <td width="25%" class="titleblock_t">{$enshaname1}{$form.enshaname1.html}{$eenshaname1}</td>
-    <td width="50%" class="titleblock_t" colspan="2">{$enshayaku1}{$form.enshayaku1.html}{$eenshayaku1}</td>
+    <td class="titleblock2_top" width="25%" >演者1</td>
+    <td width="25%" class="titleblock_top">{$enshaname1}{$form.enshaname1.html}{$eenshaname1}</td>
+    <td width="50%" class="titleblock_top" colspan="2">{$enshayaku1}{$form.enshayaku1.html}{$eenshayaku1}</td>
   </tr>
   <tr>
     <td class="titleblock2" align="right" width="25%">演題1</td>
@@ -119,7 +121,7 @@
 </table>
 <span class="accordion_head2"><input type="button" name="e2" value="追加"></span>
 <div> 
-<table cellSpacing=1 cellPadding=2 width=680 border=0>
+<table cellSpacing=1 cellPadding=4 width=680 border=0>
   <tr>
     <td class="titleblock2" align="right" width="25%">演者5</td>
     <td width="25%" class="titleblock_t">{$enshaname5}{$form.enshaname5.html}{$eenshaname5}</td>
@@ -159,22 +161,23 @@
 </table>
 </div> 
 
-<table cellSpacing=1 cellPadding=2 width=680 border=0>
+<table cellSpacing=1 cellPadding=4 width=680 border=0>
   <tr>
-    <td class="titleblock2" width="25%">共催(コプロ社名)</td>
-    <td width="25%" class="titleblock" width="75%" colspan=3>
+    <td class="titleblock2_top" width="25%">共催(コプロ社名)</td>
+    <td width="25%" class="titleblock_top" width="75%" colspan=3>
 	{$syukan}{$form.syukan.html}{$esyukan}&nbsp;&nbsp;&nbsp;{$syukan2}{$form.syukan2.html}{$esyukan2}</td>
   </tr>
   <tr>
-    <td class="titleblock2" width="25%" rowspan=2>製品担当</td>
-    <td width="25%" class="titleblock" >氏名 {$sekinin}{$form.sekinin.html}{$esekinin}</td>
-    <td class="titleblock2b" width="25%">組織化担当</td>
-    <td width="25%" class="titleblock"><span class="letter9">氏名</span> {$soshiki}{$form.soshiki.html}{$esoshiki}</td>
+    <td class="titleblock2b" width="25%" >製品担当</td>
+    <td width="75%" class="titleblock" colspan=3>氏名 {$sekinin}{$form.sekinin.html}{$esekinin}</td>
   </tr>
   <tr>
-    <td width="25%" class="titleblock" ></td>
+    <td class="titleblock2b" width="25%">組織化担当</td>
+    <td width="75%" class="titleblock" colspan=3><span class="letter9">氏名</span> {$soshiki}{$form.soshiki.html}{$esoshiki}</td>
+  </tr>
+  <tr>
     <td class="titleblock2b" width="25%">CL担当</td>
-    <td width="25%" class="titleblock"><span class="letter9">氏名</span> {$cltantou}{$form.cltantou.html}{$ecltantou}</td>
+    <td width="75%" class="titleblock" colspan=3><span class="letter9">氏名</span> {$cltantou}{$form.cltantou.html}{$ecltantou}</td>
   </tr>
   <tr>
     <td class="titleblock2" width="25%">学会参加見込み人数</td>
@@ -239,14 +242,20 @@
     <td width="25%" class="titleblock">{$seminar_mousi}{$form.seminar_mousi.html}{$eseminar_mousi}</td>
   </tr>
   <tr>
-    <td class="titleblock2b" width="25%">役割者決定</td>
-    <td width="25%" class="titleblock">{$yakuketsu}{$form.yakuketsu.html}{$eyakuketsu}</td>
     <td class="titleblock2b" width="25%" >LS事前申込</td>
     <td width="25%" class="titleblock">{$mousi_k}{$form.mousi_k.html}{$emousi_k}</td>
+    <td class="titleblock2b" width="25%"></td>
+    <td width="25%" class="titleblock"></td>
   </tr>
   <tr>
-    <td class="titleblock2" width="25%">1stメール(API)</td>
-    <td width="25%" class="titleblock">{$amail}{$form.amail.html}{$eamail}</td>
+    <td class="titleblock2b" width="25%" >役割者決定予定日</td>
+    <td width="25%" class="titleblock">{$yakuketsu_yotei}{$form.yakuketsu_yotei.html}{$eyakuketsu_yotei}</td>
+    <td class="titleblock2b" width="25%">役割者決定</td>
+    <td width="25%" class="titleblock">{$yakuketsu}{$form.yakuketsu.html}{$eyakuketsu}</td>
+  </tr>
+  <tr>
+    <td class="titleblock2" width="25%">1stメール(API)予定日</td>
+    <td width="25%" class="titleblock">{$amail_yotei}{$form.amail_yotei.html}{$eamail_yotei}</td>
     <td class="titleblock2b" width="25%" class="titleblock">MR宛mail</td>
     <td width="25%" class="titleblock">{$annai2}{$form.annai2.html}{$eannai2}</td>
   </tr>
@@ -277,23 +286,29 @@
   <tr>
     <td class="titleblock2" width="25%">控室名</td>
     <td width="25%" class="titleblock">{$hikae_k}{$form.hikae_k.html}{$ehikae_k}</td>
+    <td class="titleblock2" width="25%">控室使用時間</td>
+    <td width="25%" class="titleblock">{$hikae_t}{$form.hikae_t.html}{$ehikae_t}</td>
+  </tr>
+  <tr>
+    <td width="25%" class="titleblock2b">控室案内予定日</td>
+    <td width="25%" class="titleblock">{$hikae_a_yotei}{$form.hikae_a_yotei.html}{$ehikae_a_yotei}</td>
     <td width="25%" class="titleblock2b">控室案内</td>
     <td width="25%" class="titleblock">{$hikae_a}{$form.hikae_a.html}{$ehikae_a}</td>
   </tr>
   <tr>
-    <td class="titleblock2" width="25%">控室使用時間</td>
-    <td width="25%" class="titleblock">{$hikae_t}{$form.hikae_t.html}{$ehikae_t}</td>
     <td class="titleblock2" width="25%">当日配布物手配</td>
     <td width="25%" class="titleblock">{$tojitu}{$form.tojitu.html}{$etojitu}</td>
-  </tr>
-  <tr>
     <td class="titleblock2b" width="25%">資材発注</td>
     <td width="25%" class="titleblock">{$sizai_order}{$form.sizai_order.html}{$esizai_order}</td>
-    <td width="25%" class="titleblock2b">分担表送付</td>
-    <td width="25%" class="titleblock">{$yakubun2}{$form.yakubun2.html}{$eyakubun2}</td>
   </tr>
   <tr>
-    <td colspan=4 height=5></td>
+    <td width="25%" class="titleblock2b">分担表送付</td>
+    <td width="25%" class="titleblock">{$yakubun2}{$form.yakubun2.html}{$eyakubun2}</td>
+    <td width="25%" class="titleblock"></td>
+    <td width="25%" class="titleblock"></td>
+  </tr>
+  <tr>
+    <td class="titleblock3" colSpan="4"></td>
   </tr>
   <tr>
     <td width="25%" class="titleblock2">進行状況</td>

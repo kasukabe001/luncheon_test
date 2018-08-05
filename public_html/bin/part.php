@@ -152,9 +152,9 @@ require_once("../../com212/inc/const.inc");
 <B><input type=radio name=r1 value="za" >座長 <input type=radio name=r1 value="en">演者：</B>
 <input type="text" name="z" size=14 STYLE="border-style:none; background-color:#CFCFCF">
 &nbsp;
-<input type="button" value="検索" onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
-&nbsp;
-<B><input type=radio name=phase value="2008" onclick="doAction(2);">旧モード<input type=radio name=phase value="2018" onclick="doAction(2);">新モード</B>
+<input type="button" value=" 検 索 " onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
+&emsp;<span class="salute">
+<B><input type=radio name=phase value="2008" onclick="doAction(2);">旧モード<input type=radio name=phase value="2018" onclick="doAction(2);">新モード</B></span>
 
 
 </td>

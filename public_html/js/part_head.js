@@ -58,23 +58,14 @@ function doAction( strValue ) {
 	// IFRAME の内容をセット
 	var jouken="00000000";
 	if (strValue == 0) {
-//		document.headform.n[0].checked = false ;
-//		document.headform.n[1].checked = false ;
-//		document.headform.n[2].checked = false ;
-//		document.headform.s[0].checked = false ;
-//		document.headform.s[1].checked = false ;
-//		document.headform.r[0].checked = false ;
-//		document.headform.r[1].checked = false ;
-//		document.headform.r[2].checked = false ;
-//		document.headform.r[3].checked = false ;
-//		document.headform.r[4].checked = false ;
-//		document.headform.r[5].checked = false ;
-//		document.headform.r[6].checked = false ;
-//		document.headform.r[7].checked = false ;
+
 	} else {
 		jouken = paraMake() + encodeURI(document.headform.g.value) + "&hm=" + encodeURI(document.headform.h.value) ;
 		jouken = jouken + "&pl=" + encodeURI(document.headform.p.value) ;
 		jouken = jouken + "&ze=" + encodeURI(document.headform.z.value) ;
+		jouken = jouken + "&se=" + encodeURI(document.headform.seihin.value) ;
+		jouken = jouken + "&sk=" + encodeURI(document.headform.soshiki.value) ;
+		jouken = jouken + "&cl=" + encodeURI(document.headform.cl.value) ;
 	}
 
 	var rand = Math.floor( Math.random() * 1000 ) + 1;
@@ -160,9 +151,9 @@ function clrbtn() {
 	document.headform.r1[0].checked=false;
 	document.headform.r1[1].checked=false;
 //製品担当
-	document.seihin.h.value = "";
+	document.headform.seihin.value = "";
 //織化担当
-	document.soshiki.h.value = "";
+	document.headform.soshiki.value = "";
 //CL担当
-	document.cl.h.value = "";
+	document.headform.cl.value = "";
 }

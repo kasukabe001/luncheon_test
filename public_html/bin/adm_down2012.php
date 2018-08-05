@@ -35,17 +35,23 @@ $downfile=urldecode($_GET['fname']); // 2012.4.20追加
 //}
 $downfile = preg_replace("/(\n|\r\n|\t)/","",$downfile); 
 
+// 2018.8.2 追加
+if (ctype_alpha(substr($_GET['fname'],0,1))) { 
+    $semi_id = substr($_GET['fname'],3,4);
+} else {
+    $semi_id = substr($_GET['fname'],0,4);
+}
 
-// $file=substr($_GET['fname'],3,4) . "/" . $_GET['fname'];
-$file=substr($_GET['fname'],3,4) . "/" . $downfile;  // 2012.4.20追加
-if (substr($_GET['fname'],3,4) <= '350') {
+
+$file=$semi_id . "/" . $downfile;  // 2012.4.20追加
+
+if ($semi_id <= '0350') {
     $dirfrom = _UPLOAD_350_ . $file;
-} else if (substr($_GET['fname'],3,4) < '1000') {
+} else if ($semi_id < '1000') {
     $dirfrom = _UPLOAD_787_ . $file;
 } else {
     $dirfrom = _UPLOAD_DIR_ . $file;
 }
-
 
 $kari_ext = substr($downfile,-4);
 $ext_1 = substr($kari_ext,0,1);
@@ -69,7 +75,6 @@ if ($ext == "xls") {
   header("Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document");
 }
 
-//  header("Content-Disposition: attachment; filename=\"$downfile\"");
 header("Content-Disposition: inline; filename=\"$downfile\"");
 readfile($dirfrom);
 

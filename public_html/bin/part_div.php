@@ -143,7 +143,13 @@ $pl = urldecode($pl);
 //$pl = mb_convert_encoding($pl,"eucJP-win","UTF-8"); 
 $ze = $_GET['ze'];
 $ze = urldecode($ze);
-//$ze = mb_convert_encoding($ze,"eucJP-win","UTF-8"); 
+// 2018.8 追加
+$se = $_GET['se'];  // 製品担当
+$se = urldecode($se);
+$sk = $_GET['sk'];  // 組織化担当
+$sk = urldecode($sk);
+$cl = $_GET['cl'];  // CL担当
+$cl = urldecode($cl);
 
 // print "<br>" . $ze;
 
@@ -258,6 +264,9 @@ if ($mode != "insert" && $mode != "update") {
     if ($zaen == 'chair') $atrlist["chair1"] = $ze;      // 座長
     if ($zaen == 'ensha') $atrlist["enshaname1"] = $ze;  // 演者
   }
+  if (!empty($se)) $atrlist["sekinin"] = $se;
+  if (!empty($sk)) $atrlist["soshiki"] = $sk;
+  if (!empty($cl)) $atrlist["cltantou"] = $cl;
 }
 
 // $m->setAliases($Reg_Att_name);

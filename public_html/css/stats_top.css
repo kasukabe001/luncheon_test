@@ -307,3 +307,11 @@ img {
 .fsize14 {
  font-size:14pt;
 }
+
+.salute {
+    color:#888888;
+    margin-left:50px;
+    padding:4px 7px 2px 5px;
+    background-color:#ffffff;
+    border:dotted 1px #c3c3c3;
+}

@@ -166,9 +166,9 @@ class BasicForm extends AppQuickForm
 
 // require_once _MODULE_DIR_ . 'MembersDAO.php';
 $dbh =& new MembersDAO();
-$sekinin_members=$dbh->getTantouMembers(1);
-$soshiki_members=$dbh->getTantouMembers(2);
-$cltantou_members=$dbh->getTantouMembers(3);
+$sekinin_members=$dbh->getTantouMembers(0);
+$soshiki_members=$dbh->getTantouMembers(1);
+$cltantou_members=$dbh->getTantouMembers(2);
 
         $this->addElement('select', 'sekinin_menu', '製品担当選択', array(""=>"") + $sekinin_members,array('onChange'=>'this.form.sekinin.value=this.options[this.selectedIndex].text'));
         $this->addElement('select', 'soshiki_menu', '組織化担当選択', array(""=>"") + $soshiki_members,array('onChange'=>'this.form.soshiki.value=this.options[this.selectedIndex].text'));

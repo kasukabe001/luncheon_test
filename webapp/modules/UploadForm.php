@@ -17,8 +17,8 @@ class UploadForm extends AppQuickForm
 
         // Study Group
         $aryRemark = array();
-        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][0], $GLOBALS['FILEKIND'][0] , 0, array('id'=>'sg_flg0'));
-        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][5], $GLOBALS['FILEKIND'][5] , 5, array('id'=>'sg_flg5'));
+        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][0], $GLOBALS['FILEKIND'][0] , $GLOBALS['FILEKIND'][0], array('id'=>'sg_flg0'));
+        $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][5], $GLOBALS['FILEKIND'][5] , $GLOBALS['FILEKIND'][5], array('id'=>'sg_flg5'));
         $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][6], $GLOBALS['FILEKIND'][6] , $GLOBALS['FILEKIND'][6], array('id'=>'sg_flg6'));
         $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][7], $GLOBALS['FILEKIND'][7] , $GLOBALS['FILEKIND'][7], array('id'=>'sg_flg7'));
         $aryRemark[] = $this->createElement('radio', null, $GLOBALS['FILEKIND'][8], $GLOBALS['FILEKIND'][8] , $GLOBALS['FILEKIND'][8], array('id'=>'sg_flg8'));
@@ -53,7 +53,7 @@ class UploadForm extends AppQuickForm
       } else {
 	$this->addRule('org_filename', 'Cannot exceed 1M bytes', 'maxfilesize', 1000000);
       }
-        $this->addRule('org_filename', 'You can submit these file ( doc,docx,pdf ).',   'extension');
+        $this->addRule('org_filename', 'You can submit these file ( doc,docx,pdf,xls,xlsx,txt ).',   'extension');
         $this->addRule('org_filename', 'File name is too long.(within 60 letters).',   'filename');
 
 	$remark=$this->getElementValue('remark');
@@ -93,7 +93,7 @@ if(!is_dir($dir)) {
 	 else $ext = $str_d;
 
 	// pdf doc docx 以外は false を返す
-	if (preg_match('/(pdf|doc|docx)/i', $ext)) {
+	if (preg_match('/(pdf|doc|docx|xls|xlsx|txt)/i', $ext)) {
 	    return true;
 	} else {
 	    return false;

@@ -19,12 +19,15 @@ td {
 .orange { color:#ff6600;line-height:1em; }
 
 .titleblock {
-/*	background-color: #fffff0 */
 	background-color: #fffff0; font-size: 11pt;
 	border-bottom:solid 1px #333333;
-
 }
-.titleblock_t {
+.titleblock_top {
+	background-color: #fffff0; font-size: 11pt;
+	border-top:solid 1px #333333;
+	border-bottom:solid 1px #333333;
+}
+.titleblock_t { /* titleblockと同じだが、たくさん使われている */
 	background-color: #fffff0; font-size: 11pt;
 	border-bottom:solid 1px #333333;
 }
@@ -37,7 +40,12 @@ td {
 	font-weight:bold;
 	border-bottom:solid 1px #333333;
 	}
-.titleblock3 {
+.titleblock2_top { /* 項目名 */
+	background-color: #FFDE9B; color:#000000; font-size:11pt;
+	border-top:solid 1px #333333;
+	border-bottom:solid 1px #333333;
+	}
+.titleblock3 { /* 見出し用 */
 	background-color: #ffffff;cellPadding:2; FONT-SIZE:13pt;
 	text-align:center;font-weight:bold;
 	border-bottom:solid 1px #333333;
@@ -403,6 +411,7 @@ td {
 	border-left-color: #333333;
 	padding: 4px;
 }
+
 
 /* input[type="button"], */
 /* input[type="reset"],
