@@ -100,7 +100,7 @@ case 'Confirm':
 	$postData[$key] = unhtmlspecialchars($val);
     }
     // ラジオボタン、Selectの値が消えることへの措置
-	$postData['remark'] = $GLOBALS['FILEKIND'][$_POST['remark']];
+//	$postData['remark'] = $GLOBALS['FILEKIND'][$_POST['remark']];
 
 
 	//Uploadファイルの情報取得
@@ -169,7 +169,9 @@ case 'Confirm':
 	//DBへ追加が成功すれば(errorがnullなら)
 	if ($updbh->getError() === null) {
 	    // ファイルアップロードとリネームを行う
-	    $sys_filename = mb_convert_encoding($sys_filename, "SJIS", "AUTO");// 日本語文字化け対策
+//	    $sys_filename = replaceKishuizon($sys_filename);// 機種依存文字対応
+//	    $sys_filename = mb_convert_encoding($sys_filename, "SJIS", "AUTO");// 日本語文字化け対策
+	    $sys_filename = mb_convert_encoding($sys_filename, "sjis-win", "AUTO");// 日本語文字化け対策
 	    $point = $uploaddir . $iso1 . "/" . $sys_filename;
 
 	    if (is_uploaded_file($_FILES['org_filename']['tmp_name'])) {

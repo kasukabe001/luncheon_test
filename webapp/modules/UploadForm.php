@@ -53,7 +53,7 @@ class UploadForm extends AppQuickForm
       } else {
 	$this->addRule('org_filename', 'Cannot exceed 1M bytes', 'maxfilesize', 1000000);
       }
-        $this->addRule('org_filename', 'You can submit these file ( doc,docx,pdf,xls,xlsx,txt ).',   'extension');
+        $this->addRule('org_filename', 'You can submit these file ( doc,docx,pdf ).',   'extension');
         $this->addRule('org_filename', 'File name is too long.(within 60 letters).',   'filename');
 
 	$remark=$this->getElementValue('remark');
@@ -93,7 +93,7 @@ if(!is_dir($dir)) {
 	 else $ext = $str_d;
 
 	// pdf doc docx 以外は false を返す
-	if (preg_match('/(pdf|doc|docx|xls|xlsx|txt)/i', $ext)) {
+	if (preg_match('/(pdf|doc|docx|xlsx|xls)/i', $ext)) {
 	    return true;
 	} else {
 	    return false;

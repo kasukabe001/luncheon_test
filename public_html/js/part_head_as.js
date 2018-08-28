@@ -9,21 +9,18 @@ function SndWindow(i){
 		}
 		
 	} else if (i==1) {
-			fname="https://linkage-staff.jp/kyousai/manual/index.html";
+			fname="https://www.reg-clinkage.jp/kyousai/manual/index.html";
 	w1=window.open(fname,"help","width=720,,status=no,resizable=Yes,directories=no,scrollbars=yes,screenX=1,left=1,screenY=1,top=1");
 	} else if (i==3) { // 管理ページ
 			fname="../mypage.php?_mod=Admin";
 	w1=window.open(fname,"Detail","width=930,,status=no,resizable=Yes,directories=no,scrollbars=yes,screenX=1,left=1,screenY=1,top=1");
 	} else {
-		var jouken="00000000";
+		var jouken="0000000";
 		jouken = paraMake() + encodeURI(document.headform.g.value) + "&hm=" + encodeURI(document.headform.h.value) ;
 		jouken = jouken + "&pl=" + encodeURI(document.headform.p.value) ;;
 		jouken = jouken + "&ze=" + encodeURI(document.headform.z.value) ;
-		jouken = jouken + "&se=" + encodeURI(document.headform.seihin.value) ;
-		jouken = jouken + "&sk=" + encodeURI(document.headform.soshiki.value) ;
-		jouken = jouken + "&cl=" + encodeURI(document.headform.cl.value) ;
 		fname="./download.php?pm=" + jouken;
-	w1=window.open(fname,"Detail","width=720,height=800,status=no,resizable=Yes,directories=no,scrollbars=yes,screenX=1,left=1,screenY=1,top=1");
+	w=window.open(fname,"Detail","width=720,height=800,status=no,resizable=Yes,directories=no,scrollbars=yes,screenX=1,left=1,screenY=1,top=1");
 	}
 }
 
@@ -59,29 +56,35 @@ function doAction( strValue ) {
 //	obj.style.scrolling = "auto";
 
 	// IFRAME の内容をセット
-	var jouken="00000000";
-//	if (strValue == 0) {
-
-//	} else {
+	var jouken="0000000";
+	if (strValue == 0) {
+//		document.headform.n[0].checked = false ;
+//		document.headform.n[1].checked = false ;
+//		document.headform.n[2].checked = false ;
+//		document.headform.s[0].checked = false ;
+//		document.headform.s[1].checked = false ;
+//		document.headform.r[0].checked = false ;
+//		document.headform.r[1].checked = false ;
+//		document.headform.r[2].checked = false ;
+//		document.headform.r[3].checked = false ;
+//		document.headform.r[4].checked = false ;
+//		document.headform.r[5].checked = false ;
+//		document.headform.r[6].checked = false ;
+//		document.headform.r[7].checked = false ;
+	} else {
 		jouken = paraMake() + encodeURI(document.headform.g.value) + "&hm=" + encodeURI(document.headform.h.value) ;
 		jouken = jouken + "&pl=" + encodeURI(document.headform.p.value) ;
 		jouken = jouken + "&ze=" + encodeURI(document.headform.z.value) ;
-		jouken = jouken + "&se=" + encodeURI(document.headform.seihin.value) ;
-		jouken = jouken + "&sk=" + encodeURI(document.headform.soshiki.value) ;
-		jouken = jouken + "&cl=" + encodeURI(document.headform.cl.value) ;
-//	}
+	}
 
 	var rand = Math.floor( Math.random() * 1000 ) + 1;
-	if (strValue == 2) { // 検索ボタンクリック
-//		obj.src = "./part_div.php?ifra=" + jouken + "&p2=" + rand;
-		obj.src = "./part_div.php?ifra=" + jouken + "&kirikae=OFF";
-	} else {   // 新旧切替
-		obj.src = "./part_div.php?ifra=" + jouken + "&kirikae=ON";
-	}
+	obj.src = "./part_div_as.php?ifra=" + jouken + "&p2=" + rand;
+
 	// IFRAME を実装
 	base.appendChild(obj);
 
 }
+
 ////////////////////////////////////////////////////////////////////
 // データ検索条件:パラメータ作成
 ////////////////////////////////////////////////////////////////////
@@ -91,9 +94,9 @@ function paraMake() {
   snum="0";
   rnum="0";
   znum="0";
-  phase="0";
 
 // 年度
+//	nnum=document.headform.n.selectedIndex;
 	if (document.headform.n.selectedIndex <= 9 ) {
 	  nnum="0" + document.headform.n.selectedIndex;
 	} else if (document.headform.n.selectedIndex > 9 ) {
@@ -102,6 +105,7 @@ function paraMake() {
 
 
 // 進捗
+//	snum=document.headform.s.selectedIndex;
 	if (document.headform.s.selectedIndex == 1 ) {
 	  snum=1;
 	} else if (document.headform.s.selectedIndex == 2 ) {
@@ -122,14 +126,7 @@ function paraMake() {
 	  znum=2; // 演者
 	}
 
-// 新旧モード
-	if (document.headform.phase[0].checked == true ) {
-	  phase=1; // 2008年モード
-	} else if (document.headform.phase[1].checked == true ) {
-	  phase=2; // 2018年モード
-	}
-
-	param = ""+nnum+snum+rnum+tnum+znum+phase;
+	param = ""+nnum+snum+rnum+tnum+znum;
 	return (param);
 }
 
@@ -139,11 +136,11 @@ function paraMake() {
 function clrbtn() {
 //	document.headform.c.checked = false;
 // 年度
-	document.headform.n.selectedIndex=12;
+	document.headform.n.selectedIndex=0;
 // 月
 	document.headform.t.selectedIndex=0;
 // 進捗
-	document.headform.s.selectedIndex = 1;
+	document.headform.s.selectedIndex = 0;
 //領域
 	document.headform.r.selectedIndex = 0;
 //学会名
@@ -156,10 +153,5 @@ function clrbtn() {
 	document.headform.z.value = "";
 	document.headform.r1[0].checked=false;
 	document.headform.r1[1].checked=false;
-//製品担当
-	document.headform.seihin.value = "";
-//織化担当
-	document.headform.soshiki.value = "";
-//CL担当
-	document.headform.cl.value = "";
 }
+

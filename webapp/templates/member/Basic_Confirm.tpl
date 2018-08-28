@@ -249,16 +249,30 @@
   </tr>
   <tr>
     <td class="titleblock2b" width="25%" >役割者決定予定日</td>
-    <td width="25%" class="titleblock">{$yakuketsu_yotei}{$form.yakuketsu_yotei.html}{$eyakuketsu_yotei}</td>
+    <td width="25%" class="titleblock">{$form.yakuketsu_yotei.html}</td>
     <td class="titleblock2b" width="25%">役割者決定</td>
     <td width="25%" class="titleblock">{$yakuketsu}{$form.yakuketsu.html}{$eyakuketsu}</td>
   </tr>
   <tr>
     <td class="titleblock2" width="25%">1stメール(API)予定日</td>
+    <td width="25%" class="titleblock">{$form.amail_yotei.html}</td>
+    <td class="titleblock2" width="25%" class="titleblock">1stメール(API)</td>
+    <td width="25%" class="titleblock">{$amail}{$form.amail.html}{$eamail}</td>
+  </tr>
+  <tr>
+    <td class="titleblock2b" width="25%">MR宛メール予定日</td>
+    <td width="25%" class="titleblock">{$form.annai2_yotei.html}</td>
+    <td class="titleblock2b" width="25%" class="titleblock">MR宛メール</td>
+    <td width="25%" class="titleblock">{$annai2}{$form.annai2.html}{$eannai2}</td>
+  </tr>
+
+
+  <!-- tr>
+    <td class="titleblock2" width="25%">1stメール(API)予定日</td>
     <td width="25%" class="titleblock">{$amail_yotei}{$form.amail_yotei.html}{$eamail_yotei}</td>
     <td class="titleblock2b" width="25%" class="titleblock">MR宛mail</td>
     <td width="25%" class="titleblock">{$annai2}{$form.annai2.html}{$eannai2}</td>
-  </tr>
+  </tr -->
   <!-- tr>
     <td width="25%" class="titleblock2">趣意書入手</td>
     <td width="25%" class="titleblock"><input type="text" name="yoko" size="20" style="IME-MODE: inactive" maxlength=36></td>
@@ -274,14 +288,14 @@
   <tr>
     <td class="titleblock2" width="25%">チラシ納品日</td>
     <td width="25%" class="titleblock">{$tirasi3}{$form.tirasi3.html}{$etirasi}</td>
-    <td width="25%" class="titleblock"></td>
-    <td width="25%" class="titleblock"></td>
-  </tr>
-  <tr>
     <td width="25%" class="titleblock2">追加申込締切</td>
     <td width="25%" class="titleblock">{$mousi_c}{$form.mousi_c.html}{$emousi_c}</td>
+  </tr>
+  <tr>
+    <td width="25%" class="titleblock2b">アンケート作成予定日</td>
+    <td width="25%" class="titleblock">{$anquete_yotei}{$form.anquete_yotei.html}{$eanquete_yotei}</td>
     <td width="25%" class="titleblock2b">アンケート作成依頼</td>
-    <td width="25%" class="titleblock">{$anquete_make}{$form.anquete_make.html}{$anquete_make}</td>
+    <td width="25%" class="titleblock">{$anquete_make}{$form.anquete_make.html}{$eanquete_make}</td>
   </tr>
   <tr>
     <td class="titleblock2" width="25%">控室名</td>

@@ -226,8 +226,8 @@ H3 {
 .standingsWinCenter {
 	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; TEXT-ALIGN: center;
 }
-.standingsLose {
-	FONT:mspgothic; FONT-SIZE: 12px; COLOR: #0000ff; LINE-HEIGHT: 130%; TEXT-ALIGN: center
+.standingsWinMini {
+	FONT:mspgothic; FONT-SIZE: 11px; COLOR: #0000ff; LINE-HEIGHT: 130%; TEXT-ALIGN: center
 }
 .standingsTai {
 	FONT-SIZE: 12px; COLOR: #333333; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center

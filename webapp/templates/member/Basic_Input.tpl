@@ -218,17 +218,17 @@
   <tr>
     <td class="titleblock2b" width="20%">製品担当</td>
     <td width="30%" class="titleblock" ><span class="letter9">氏名</span> {$form.sekinin.html}</td>
-    <td width="50%" class="titleblock" colspan=2>{$form.sekinin_menu.html}</td>
+    <td width="50%" class="titleblock" colspan=2>{$form.sekinin_menu.html} <span class="letter9">（メニューから選択できます。）</span></td>
   </tr>
   <tr>
     <td class="titleblock2b" width="20%">組織化担当</td>
     <td width="30%" class="titleblock"><span class="letter9">氏名</span> {$form.soshiki.html}</td>
-    <td width="50%" class="titleblock" colspan=2>{$form.soshiki_menu.html}</td>
+    <td width="50%" class="titleblock" colspan=2>{$form.soshiki_menu.html}<span class="letter9">（メニューから選択できます。）</span></td>
   </tr>
   <tr>
     <td class="titleblock2b" width="20%">CL担当</td>
     <td width="30%" class="titleblock"><span class="letter9">氏名</span> {$form.cltantou.html}</td>
-    <td width="50%" class="titleblock" colspan=2>{$form.cltantou_menu.html}</td>
+    <td width="50%" class="titleblock" colspan=2>{$form.cltantou_menu.html}<span class="letter9">（メニューから選択できます。）</span></td>
   </tr>
   <tr>
     <td class="titleblock2" width="20%">学会参加見込み人数</td>
@@ -273,8 +273,7 @@
   <tr>
     <td width="20%" class="titleblock2b">抄録進捗</td>
     <td width="30%" class="titleblock">{$form.syoroku.html}</td>
-    <td class="titleblock2" width="20%"></td>
-    <td width="30%" class="titleblock"></td>
+    <td width="50%" class="titleblock" colspan=2>{$form.syoroku_status.html}<span class="letter9">（メニューから選択できます。）</span></td>
   </tr>
   <tr>
     <td class="titleblock2" width="20%">演題登録ページURL</td>
@@ -308,7 +307,7 @@
   <tr>
     <td class="titleblock2" width="20%">1stメール(API)予定日</td>
     <td width="30%" class="titleblock">{$form.amail_yotei.html}</td>
-    <td class="titleblock2b" width="20%" class="titleblock">1stメール(API)</td>
+    <td class="titleblock2" width="20%" class="titleblock">1stメール(API)</td>
     <td width="30%" class="titleblock">{$form.amail.html}</td>
   </tr>
   <tr>
@@ -326,14 +325,14 @@
   <tr>
     <td class="titleblock2" width="20%">チラシ納品日</td>
     <td width="30%" class="titleblock">{$form.tirasi3.html}</td>
-    <td width="20%" class="titleblock"></td>
-    <td width="30%" class="titleblock"></td>
+    <td width="20%" class="titleblock2">追加申込締切</td>
+    <td width="30%" class="titleblock">{$form.mousi_c.html}</td>
   </tr>
   <tr>
     <!-- td class="titleblock2" width="25%">追加申込</td>
     <td width="25%" class="titleblock"><input type="text" name="mousi_add" size="20" style="IME-MODE: inactive" maxlength=36></td -->
-    <td width="20%" class="titleblock2">追加申込締切</td>
-    <td width="30%" class="titleblock">{$form.mousi_c.html}</td>
+    <td class="titleblock2b" width="20%">アンケート作成予定日</td>
+    <td width="30%" class="titleblock">{$form.anquete_yotei.html}</td>
     <td width="20%" class="titleblock2b">アンケート作成依頼</td>
     <td width="30%" class="titleblock">{$form.anquete_make.html}</td>
   </tr>

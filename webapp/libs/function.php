@@ -693,10 +693,8 @@ function AutoCalcDate($kaisaibi){
 	$banban = explode("/", $kaisaibi);
 	if (strlen($banban[0]) == 4 ) {
 		$dAry['y']=$banban[0]; // 年が4桁のとき
-//		$dAry['y']=substr($banban[0],2,2); // 年が4桁のとき
 	} else {
 		$dAry['y']="20" . $banban[0];
-//		$dAry['y']=$banban[0];
 	}
 	if (substr($banban[1],0,1) == "0" ) {
 		$dAry['m']=substr($banban[1],1,1);
@@ -708,20 +706,130 @@ function AutoCalcDate($kaisaibi){
 	} else {
 		$dAry['d']=substr($banban[2],0,2);
 	}
-
-//	$pyear = "20" . $dAry['y'];
 	$pyear = $dAry['y'];
+/*
 	$ptimestamp = mktime(0, 0, 0, $dAry['m'], $dAry['d'], $pyear);
 	$weekno = date('w', $ptimestamp);
 	$dAry['w']= $weekjp_array[$weekno];
+*/
 //	$dAry['kaisaibi']= date('Y/m/d', $ptimestamp);
-	$dAry['before97']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-97, $pyear));
-	$dAry['before100']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-100, $pyear));
-	$dAry['before103']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-103, $pyear));
+
+	$saijitsu=Holidays(date('Y')); // 祝日を取得
+//print_r($saijitsu);
+	$nichimae=97;
+	$dAry['before97']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+	$sa = isHoliday($dAry['before97'],$saijitsu);
+	$nichimae += $sa;
+	$dAry['before97W']= date('w', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+	if ($dAry['before97W'] == 0 ) $nichimae += 2;
+	 else if ($dAry['before97W'] == 6 )  $nichimae += 1;
+	$dAry['before97']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+
+	$nichimae=100;
+	$dAry['before100']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+	$sa = isHoliday($dAry['before100'],$saijitsu);
+	$nichimae += $sa;
+	$dAry['before100W']= date('w', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+	if ($dAry['before100W'] == 0 ) $nichimae += 2;
+	 else if ($dAry['before100W'] == 6 )  $nichimae += 1;
+	$dAry['before100']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+
+	$nichimae=103;
+	$dAry['before103W']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+	$sa = isHoliday($dAry['before103'],$saijitsu);
+	$nichimae += $sa;
+	$dAry['before103W']= date('w', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+	if ($dAry['before103W'] == 0 ) $nichimae += 2;
+	 else if ($dAry['before103W'] == 6 )  $nichimae += 1;
+	$dAry['before103']= date('y/m/d', mktime(0, 0, 0, $dAry['m'], $dAry['d']-$nichimae, $pyear));
+
+	$nichimae=0;
 	$dAry['before1month']= date('y/m/d', mktime(0, 0, 0, $dAry['m']-1, $dAry['d'], $pyear));
+	// 実在しない日付対策
+	if (!checkdate($dAry['m']-1, $dAry['d'], $pyear)) {
+	    $uruu = $pyear % 4;
+	    if ($dAry['m']==3) {
+		$nichimae = ($uruu == 0) ? 2 : 3;
+     	    } else {
+		$nichimae=1;
+	    }
+	    $dAry['before1month']= date('y/m/d', mktime(0, 0, 0, $dAry['m']-1, $dAry['d']-$nichimae, $pyear));
+	}
+
+	$sa = isHoliday($dAry['before1month'],$saijitsu);
+	$nichimae += $sa;
+	$dAry['before1monthW']= date('w', mktime(0, 0, 0, $dAry['m']-1, $dAry['d']-$nichimae, $pyear));
+	if ($dAry['before1monthW'] == 0 ) $nichimae += 2;
+	 else if ($dAry['before1monthW'] == 6 )  $nichimae += 1;
+	$dAry['before1month']= date('y/m/d', mktime(0, 0, 0, $dAry['m']-1, $dAry['d']-$nichimae, $pyear));
+
+	unset($dAry['before97W']);
+	unset($dAry['before100W']);
+	unset($dAry['before103W']);
+	unset($dAry['before1monthW']);
 	return $dAry;
 }
 
+/**
+ * 祝日取得
+ * @param  integer $year   // 年
+ * @return array  直近2年の祝日
+ */
+function Holidays($year){
+
+	//前年
+	$pre_year = $year - 1;
+       // ライブラリの読み込み
+        require_once 'Date/Holidays.php';
+ 
+       // 翻訳ファイルパス
+          $translationfile = '/usr/share/pear-data/Date_Holidays_Japan/lang/Japan/ja_JP.xml';
+//        $translationfile = '/usr/share/pear/data/Date_Holidays_Japan/lang/Japan/ja_JP.xml';
+ 
+       // Date_Holidaysインスタンスを生成。国言語、年を設定する
+	$holiday = Date_Holidays::factory('Japan', $year, 'ja_JP');
+
+       // 翻訳ファイルを設定する
+        $holiday->addTranslationFile($translationfile, 'ja_JP');
+
+        // 祝日とその名称を表示する
+        foreach($holiday->getHolidays() as $h){
+//	  $Ary[]=$h->getDate()->format('%Y-%m-%d') . ' : ' . $h->getTitle() . '';
+	  $Ary[]=$h->getDate()->format('%Y-%m-%d');
+        }
+
+	$holiday2 = Date_Holidays::factory('Japan', $pre_year, 'ja_JP');
+        $holiday2->addTranslationFile($translationfile, 'ja_JP');
+        foreach($holiday2->getHolidays() as $h){
+	  $Ary[]=$h->getDate()->format('%Y-%m-%d');
+        }
+
+	return $Ary;
+}
+
+
+
+/**
+ * 祝日なら1を返し、祝日でなければ0を返す
+ * @param  string $day          // 年
+ * @param  array $holidays     // 祝日
+ * @return integer  $before_day // 前日 or 連休前の日までの日数
+ */
+function isHoliday($day,$saijitsu){
+
+    $day = "20" . str_replace("/","-",$day);
+    $tsukihi = substr($day,5,5);
+
+    if (in_array($day,$saijitsu) == true || $tsukihi == '01-02' ||$tsukihi == '01-03') {
+	if ($tsukihi == '05-05' || $tsukihi == '01-02') $before_day = 3;
+	 else if ($tsukihi == '05-04' || $tsukihi == '01-01') $before_day = 2;
+	 else if ($tsukihi == '01-03') $before_day = 4;
+	 else $before_day = 1;
+    } else {
+	$before_day = 0;
+    }
+    return $before_day;
+}
 
 
 

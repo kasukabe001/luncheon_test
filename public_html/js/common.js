@@ -27,7 +27,7 @@ function reqTantouList(_mod, _act, ta_id) {
 
 function coreponWindow(semi_id){
     fname2="./admincl/corepon.php?p=" + semi_id ;
-    popup = window.open(fname2,"コレポン","width=520,height=580,resizable=no,directories=no,scrollbars=no,screenX=1,left=680,screenY=1,top=0");
+    popup = window.open(fname2,"コレポン","width=830,height=660,resizable=no,directories=no,scrollbars=no,screenX=1,left=680,screenY=1,top=0");
 }
 
 function doDialog(){

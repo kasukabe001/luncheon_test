@@ -64,7 +64,7 @@ if ($kubun=="pm") {
 	exit;
 } else if ($kubun=="as") {
 	$_SESSION['param'] = $modeb;
-	header("location: ./part.php?p=5c549rw87867667zvfsj");
+	header("location: ./part_as.php?p=5c549rw87867667zvfsj");
 	exit;
 } else if ($kubun=="cl") {
 	$_SESSION['param'] =$modec;

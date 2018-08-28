@@ -8,7 +8,7 @@ class UploadDAO extends DAO
      * Set of Variables
      */
     var $table = 'file'; //DB Tabel name
-    var $subtable = 'luncehon'; //DB Tabel name
+    var $subtable = 'luncheon'; //DB Tabel name
 
 
 
@@ -37,8 +37,9 @@ class UploadDAO extends DAO
      * @param  integer $semi_id
      * @return array $ary (kaiji,oudaku)
      */
-    function getFileNum($semi_id)
+    function getFileNum($semi_id,$n)
     {
+
         if ($this->getError() !== null) {return;}
 
 	$sql =& $this->con->prepare('select max(sys_num) as maxno from ' . $this->table . ' where semi_id = ? and status = 0'); 
@@ -57,10 +58,11 @@ class UploadDAO extends DAO
 	$sql =& $this->con->prepare("select semi_id from " . $this->table . " where semi_id = ? and remark = '伝票' and status = 0"); 
         $res =& $this->con->execute($sql,$semi_id);
 	$ary['denpyo'] = $res->numRows();
-        if (DB::isError($res)) {
-            $this->setError($res->getMessage()." (".__LINE__.")");
-            return;
-        }
+
+//        if (DB::isError($res)) {
+//            $this->setError($res->getMessage()." (".__LINE__.")");
+//            return;
+//        }
 
     return $ary;
     }
@@ -114,12 +116,95 @@ class UploadDAO extends DAO
 
         if (DB::isError($res)) {
             $this->setError($res->getMessage()." (".__LINE__.")");
-	    print $res->getDebugInfo();
+//	    print $res->getDebugInfo();
 //    	    die($res->getMessage());
             return;
         }
 
         return;
+    }
+
+
+
+    /**
+     * メール情報の取得  2018年追加
+     *
+     * @param  string $id  セミナーID
+     * @param  string $field_name
+     * @return array
+     */
+    function getMail($id, $field_name='semi_id')
+    {
+
+       if ($this->getError() !== null) {return;}
+
+        $sql =& $this->con->prepare('SELECT semi_id ,corepon FROM ' . $this->subtable . ' WHERE ' . $field_name . ' = ?');
+
+        $res =& $this->con->execute($sql,$id);
+        if (DB::isError($res)) {
+            $this->setError($res->getMessage()." (".__LINE__.")");
+            return;
+        }
+	$row =& $res->fetchRow(DB_FETCHMODE_ASSOC);
+
+    return $row;
+    }
+
+
+
+    /**
+     * fileテーブル statusを1にする
+     *
+     * @param  integer $ID  // ファイル情報 
+     * @param  integer $semi_id  
+     * @return 
+     */
+    function update_file($reg_id,$semi_id)
+    {
+
+        if ($this->getError() !== null) {return;}
+
+	$today = date("Y-n-j");
+
+        $sql =& $this->con->prepare(
+            'UPDATE '.$this->table.' SET status =1, del_date=? WHERE reg_id= ? and semi_id=?');
+
+	$ary=array($today,$reg_id,$semi_id);
+        $res =& $this->con->execute($sql, $ary);
+
+	if (DB::isError( $res )) {
+		print "Update Error0：<br>";
+//		print $res->getDebugInfo();
+//      	die($res->getMessage());
+	}
+
+        return;
+    }
+
+
+
+    /**
+     * fileテーブル statusを1にする
+     *
+     * @param  integer $semi_id  
+     * @param  integer $n  // ファイル種別 
+     * @return 
+     */
+    function get_reg_id($semi_id,$n)
+    {
+
+        if ($this->getError() !== null) {return;}
+
+	$sql =& $this->con->prepare("select reg_id from " . $this->table . " where semi_id = ? and remark = '" . $GLOBALS['FILEKIND'][$n] . "' and status = 0"); 
+        $res =& $this->con->execute($sql,$semi_id);
+//	$num =  $res->numRows();
+//	if ($num > 0) {
+        	$row =& $res->fetchRow(DB_FETCHMODE_ASSOC);
+//		$ary['reg_id'] = $row['reg_id'];
+//	} else {
+//		$ary['reg_id'] = 0;
+//	}
+        return $row['reg_id'] ;
     }
 
 

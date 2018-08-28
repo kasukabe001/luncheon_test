@@ -23,8 +23,8 @@ define('_ADMIN_UID1_',   '1');
 define('_ADMIN_PWD1_',   '1');//
 define('_ADMIN_NAME1_',  'プロマネ');
 
-define('_ADMIN_UID2_',   'toukatsu');
-define('_ADMIN_PWD2_',   'seminar');//
+define('_ADMIN_UID2_',   '2'); //toukatsu
+define('_ADMIN_PWD2_',   '2'); //seminar
 define('_ADMIN_NAME2_',  '学術情報部');
 
 define('_ADMIN_UID3_',   '9');

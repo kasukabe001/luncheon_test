@@ -1,7 +1,7 @@
 function TopWindow(oid,cmod,token){
 	var rand = Math.floor( Math.random() * 1000 ) + 1;
 	if (cmod == 0) {
-		if (token==1) {
+		if (token==2) { // 抄録進捗
 			fname="../mypage.php?oid=" + oid + "&_act=Login&move=600";
 		} else {
 			fname="../mypage.php?oid=" + oid + "&_act=Login";

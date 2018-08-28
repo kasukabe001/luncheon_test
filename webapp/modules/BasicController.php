@@ -33,6 +33,7 @@ switch ($act) {
 
 case 'Display':
 default:
+
     //トークンのセット
     createToken($this->renderer, $this->session);
 
@@ -182,14 +183,16 @@ case 'Direct':
     }
     $diffA = diff_Column( $beforeData,$postData);
     //予定日の自動設定
+
     if (in_array("kaisaibi",$diffA)) {
-	array_push($diffA,"amail_yotei","annai2_yotei","yakuketsu_yotei","hikae_a_yotei");
+	array_push($diffA,"amail_yotei","annai2_yotei","yakuketsu_yotei","hikae_a_yotei","anquete_yotei");
 //	$diffA[]='annai2_yotei';
 	$dayAry = AutoCalcDate($postData['kaisaibi']); // 日付分断
-	$postData['amail_yotei']=$dayAry['before100'];
-	$postData['annai2_yotei']=$dayAry['before97'];
-	$postData['yakuketsu_yotei']=$dayAry['before103'];
-	$postData['hikae_a_yotei']=$dayAry['before1month'];
+	$postData['amail_yotei']= $dayAry['before100'];
+	$postData['annai2_yotei']= $dayAry['before97'];
+	$postData['yakuketsu_yotei']= $dayAry['before103'];
+	$postData['hikae_a_yotei']= $dayAry['before1month'];
+	$postData['anquete_yotei']= $dayAry['before1month'];
     }
 
     //変更がなければ

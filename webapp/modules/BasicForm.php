@@ -154,7 +154,9 @@ class BasicForm extends AppQuickForm
         $this->addElement('text', 'hikae_t', '控室使用時間', array('size'=>20, 'maxlength'=>36));
         $this->addElement('text', 'hikae_a_yotei', '控室案内予定日', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;border: none;',readonly)); // 2018
         $this->addElement('text', 'hikae_a', '控室案内', array('size'=>20, 'maxlength'=>36));
-        $this->addElement('select', 'syoroku', '抄録進捗', array(""=>"▼選択") + $GLOBALS['PROGRESS_STATUS']); // 2018
+        $this->addElement('select', 'syoroku_status', '抄録進捗', array(""=>"") + $GLOBALS['PROGRESS_STATUS'],array('onChange'=>'this.form.syoroku.value=this.options[this.selectedIndex].text')); // 2018
+        $this->addElement('text', 'syoroku', '抄録締', array('size'=>30, 'maxlength'=>36));
+        $this->addElement('text', 'anquete_yotei', 'アンケート作成予定日', array('size'=>20, 'maxlength'=>24, 'style'=>'ime-mode:inactive;border: none;',readonly)); // 2018
 
         $this->addElement('text', 'tojitu', '当日配布物手配', array('size'=>20, 'maxlength'=>24));
         $this->addElement('text', 'sizai_order', '進捗状況', array('size'=>20, 'maxlength'=>24)); // 2018

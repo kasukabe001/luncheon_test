@@ -9,12 +9,9 @@ session_regenerate_id(true); // 2010.5.29 追加
 
 switch ($act) {
 case 'Login':
-// if ($_SERVER["REQUEST_METHOD"] == "GET") {
-//      header("Location:mypage.php?_mod=Exception");
-//      exit();
-// }
-      $uid = $_SESSION['USERID'];
-      $pwd = $_SESSION['PWD'];
+
+    if (isset($_SESSION['USERID'])) $uid = $_SESSION['USERID'];
+    if (isset($_SESSION['PWD'])) $pwd = $_SESSION['PWD'];
 
     //空が渡された時
     if ($uid == '' || $pwd == '') {
@@ -47,7 +44,8 @@ case 'Login':
     $dbh->LockKaijo($_SESSION['logintoken']);
 
     if ($uid == _ADMIN_UID3_ && $pwd == _ADMIN_PWD3_) {
-       header('Location:mypage.php?_mod=Basic');
+	if (isset($_GET['move'])==true ) header('Location:mypage.php?_mod=Basic&move=850');
+	 else header('Location:mypage.php?_mod=Basic');
     } else {
        header('Location:mypage.php?_mod=Info&move=' . $_GET['move']);
     }

@@ -32,8 +32,8 @@ if ($_GET[usersql]) { // 2ページ目以降
   $mystring = $_SERVER["HTTP_REFERER"];
   $str1 = "https:";
   $pos1 = strpos($mystring ,$str1);
-//  $str2 = "linkage-staff.jp/";
-  $str2 = "www.reg-clinkage.jp/";
+  $str2 = "linkage-staff.jp";
+//  $str2 = "61.206.45.171";
   $pos2 = strpos($mystring ,$str2);
   if (($pos1 == 0 ) && ($pos2 == 8)) $hantei = "OK";
   if ($hantei == "NG") {
@@ -48,11 +48,9 @@ if( $Error ) {
   exit;
 }
 
-$phase = substr($_GET['ifra'],7,1);
 require("../../com212/inc/const.inc");
 require("../../com212/inc/dbconnect.ini");
 require("../../com212/inc/pgselect2.ini");
-require("../../com212/inc/pgselect22018.ini");
 require("../../com212/inc/pgmetadata.ini");
 
 
@@ -72,8 +70,8 @@ require("../../com212/inc/pgmetadata.ini");
 <body onload="hide();rCheck();" onunload="TopWindowClose();" topmargin="0" leftmargin="0">
 
 <?php
-// if ($phase=='1' || $_SESSION['phase']=='1') {
-  class myPgSelect2 extends PgSelect2 {
+
+class myPgSelect2 extends PgSelect2 {
   function printUpdateTag($oid) {
     global $PHP_SELF, $usersql, $offset, $num;
     $usql = urlencode($usersql);
@@ -82,26 +80,12 @@ require("../../com212/inc/pgmetadata.ini");
 	else $cc="#ffffff";
 
     print ("<td height=35 class=FreezingCol style =\"FONT:mspgothic; FONT-SIZE: 12px; COLOR: #0000ff; LINE-HEIGHT: 130%; BACKGROUND-COLOR: $cc;\" >");
-    print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
+   print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
+//	print ("<td class=standingsTeam align=center valign=top><input type=button value=\"詳細\" onclick=\"TopWindow($oid);\">");
     $num += 1;
   }
-  }
-// } else {
-  class myPgSelect22018 extends PgSelect22018 {
-  function printUpdateTag($oid) {
-    global $PHP_SELF, $usersql, $offset, $num;
-    $usql = urlencode($usersql);
-    $cmod = $num % 2;
-    if ($cmod == 1) $cc="#FFA07A"; //f0f0f0 FFA07A
-	else $cc="#ffffff";
 
-    print ("<td rowspan=2 class=standingsWin>");
-    print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
-    $num += 1;
-  }
-  }
-// }
-
+}
 class myPgMetaData extends PgMetaData {
 }
 function myCheck($atrlist) {
@@ -131,7 +115,7 @@ $s1 = substr($_GET['ifra'],2,1);
 $r1 = substr($_GET['ifra'],3,1);
 $k1 = substr($_GET['ifra'],4,2);
 $z1 = substr($_GET['ifra'],6,1);
-$gk = substr($_GET['ifra'],8);
+$gk = substr($_GET['ifra'],7);
 $gk = urldecode($gk);
 
 // 2010.9 追加
@@ -143,13 +127,7 @@ $pl = urldecode($pl);
 //$pl = mb_convert_encoding($pl,"eucJP-win","UTF-8"); 
 $ze = $_GET['ze'];
 $ze = urldecode($ze);
-// 2018.8 追加
-$se = $_GET['se'];  // 製品担当
-$se = urldecode($se);
-$sk = $_GET['sk'];  // 組織化担当
-$sk = urldecode($sk);
-$cl = $_GET['cl'];  // CL担当
-$cl = urldecode($cl);
+//$ze = mb_convert_encoding($ze,"eucJP-win","UTF-8"); 
 
 // print "<br>" . $ze;
 
@@ -192,6 +170,9 @@ switch ($n1) {
   break;
   case(13):
   $nd="2019";
+  break;
+  case(14):
+  $nd="2020";
 }
 
 switch ($s1) {
@@ -264,9 +245,6 @@ if ($mode != "insert" && $mode != "update") {
     if ($zaen == 'chair') $atrlist["chair1"] = $ze;      // 座長
     if ($zaen == 'ensha') $atrlist["enshaname1"] = $ze;  // 演者
   }
-  if (!empty($se)) $atrlist["sekinin"] = $se;
-  if (!empty($sk)) $atrlist["soshiki"] = $sk;
-  if (!empty($cl)) $atrlist["cltantou"] = $cl;
 }
 
 // $m->setAliases($Reg_Att_name);
@@ -313,23 +291,13 @@ $rows= $s->doSelect($m->makeSQL($sort,true),0);
 */
 
 } else if ($atrlist) {	// 最初のページ
-  if ($phase=='1') $s = new myPgSelect2;
-   else $s = new myPgSelect22018;
-
+  $s = new myPgSelect2;
   if ($_GET[usersql]) { // 2ページ目以降
 	$sqlimg = $_GET[usersql];
-     if ($_SESSION['phase']=='1') $s = new myPgSelect2;
-      else $s = new myPgSelect22018;
-        $_SESSION['offset'] = $_GET['offset']; // 2018年8月追加
   } else { // 最初のページ
 	$sqlimg = $m->makeSQL($sort,true);
-        $_SESSION['phase'] = $phase; // 2018年8月追加
   }
-//  $rows= $s->doSelect($sqlimg,0);
-     $rows= $s->doSelect($sqlimg,$_GET['kirikae']);
- if ($_GET['kirikae'] == 'OFF') {
-        $_SESSION['offset'] = 0; // 2018年8月追加
-}
+  $rows= $s->doSelect($sqlimg,0);
 
 /*
 } else if ($usersql) {	// 2ページ以降

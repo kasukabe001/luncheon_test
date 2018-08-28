@@ -112,6 +112,6 @@ $(document).ready(function(){
 
 </head>
 
-<body onunload="popup.close();">
+<body onload=moveto({$smarty.request.move}) onunload="popup.close();">
 <a ID="top"></a>
 

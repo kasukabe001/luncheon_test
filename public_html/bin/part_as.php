@@ -1,6 +1,6 @@
 <?php
 //############################################################
-// part2018.php
+// part.php
 //############################################################
 // 1.ログイン後TOPページ表示
 // 2.インラインフレーム内に検索結果を表示
@@ -29,51 +29,15 @@ if( $Error ) {
 
 require_once("../../com212/inc/const.inc");
 
-//------------------------------------------------------------
-// データベース・オープン
-//------------------------------------------------------------
-$conn = @pg_connect($OPEN);
-if($conn == false) {
-  err_out(1);
-  include ("../../com212/php/close_footer2012.php");
-  exit;
-}
-
-$result = @pg_exec($conn,"select * from sy_seihin order by id");
-$num_rows = pg_numrows($result); // レコード数を確認します
-$seihin_tantou=array();
-for ($i = 0;$i < $num_rows;$i++) {
-  $row = pg_fetch_array($result,$i,PGSQL_ASSOC);
-  $seihin_tantou[] = $row['name'];
-}
-$result = @pg_exec($conn,"select * from sy_soshiki order by id");
-$num_rows = pg_numrows($result); // レコード数を確認します
-$soshiki_tantou=array();
-for ($i = 0;$i < $num_rows;$i++) {
-  $row = pg_fetch_array($result,$i,PGSQL_ASSOC);
-  $soshiki_tantou[] = $row['name'];
-}
-$result = @pg_exec($conn,"select * from sy_linkage order by id");
-$num_rows = pg_numrows($result); // レコード数を確認します
-$cl_tantou=array();
-for ($i = 0;$i < $num_rows;$i++) {
-  $row = pg_fetch_array($result,$i,PGSQL_ASSOC);
-  $cl_tantou[] = $row['name'];
-}
-//------------------------------------------------------------
-// データベース・クローズ
-//------------------------------------------------------------
-pg_close($conn);
-
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Language" content="ja">
 <LINK href="../css/stats_top.css" type=text/css rel=stylesheet>
-<script type="text/javascript" src="../js/part_head.js"></script>
+<script type="text/javascript" src="../js/part_head_as.js"></script>
 
 <title>学会一覧</title>
 
@@ -84,7 +48,7 @@ pg_close($conn);
 <form name=headform style="margin-bottom=1px;"><br>
 <table width=100% cellpadding=4 cellspacing=4><tr>
 <!-- td width=540 bgcolor="#FFffff" style="border:double;"><font size=2 -->
-<td width="71%" bgcolor="#FFffff" style="border:double;FONT-SIZE: 12px;">
+<td width="71%" bgcolor="#FFffff" style="border:double;"><font size=2>
 &nbsp;<b>年&nbsp;&nbsp;&nbsp;度</b>：&nbsp;<select size=1 name="n" STYLE="background-color:#ffffff;">
     <option value="" > </option>
     <option value="0" >2007</option>
@@ -100,6 +64,7 @@ pg_close($conn);
     <option value="10">2017</option>
     <option value="11" selected>2018</option>
     <option value="12" >2019</option>
+    <option value="13" >2020</option>
     </select>年
 
 &nbsp;<select size=1 name="t" STYLE="background-color:#ffffff;">
@@ -138,39 +103,6 @@ pg_close($conn);
 
 &nbsp;<B>品目</B>：
 <input type="text" name="h" size=10 STYLE="border-style:none; background-color:#CFCFCF">
-
-&nbsp;<B>製品担当</B>：
-<input type="text" name="seihin" list="seihinmember" autocomplete="on" size=12>
-  <datalist id="seihinmember">
-    <option value="" >
-<?php
-	foreach($seihin_tantou as $val) {
-	  print "<option value='" . $val . "'>";
-	}
-?>
-  </datalist>
-
-&nbsp;<B>組織化担当</B>：
-<input type="text" name="soshiki" list="soshikimember" autocomplete="on" size=12>
-  <datalist id="soshikimember">
-    <option value="">
-<?php
-	foreach($soshiki_tantou as $val) {
-	  print "<option value='" . $val . "'>";
-	}
-?>
-  </datalist>
-&nbsp;<B>CL担当</B>：
-<input type="text" name="cl" list="clmember" autocomplete="on" size=12>
-  <datalist id="clmember">
-    <option value="">
-<?php
-	foreach($cl_tantou as $val) {
-	  print "<option value='" . $val . "'>";
-	}
-?>
-  </datalist>
-&emsp;
 <input type="button" value="ｸﾘｱ" onclick="clrbtn();">
 
 <img src="../images/spacer.gif" width="530" height="3"><br>
@@ -181,15 +113,12 @@ pg_close($conn);
 &nbsp;&nbsp;
 <B><input type=radio name=r1 value="za" >座長 <input type=radio name=r1 value="en">演者：</B>
 <input type="text" name="z" size=14 STYLE="border-style:none; background-color:#CFCFCF">
-&nbsp;
-<input type="button" value=" 検 索 " onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
-&emsp;<span class="salute">
-<B><input type=radio name=phase value="2008" onclick="doAction(3);">旧モード<input type=radio name=phase value="2018" onclick="doAction(3);">新モード</B></span>
 
+<input type="button" value="検索" onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
 
+</font>
 </td>
-<td width=9% align=right valign=top>
-<input type="button" value="To Excel" onclick="SndWindow(2)"><br>
+<td width=9% align=right valign=top><input type="button" value="To Excel" onclick="SndWindow(2)">
 <?php
 if ($_SESSION['param'] == $modec) {
 	print "<input type=\"button\" value=\"管理機能\" onclick=\"SndWindow(3);\">";
@@ -199,7 +128,7 @@ if ($_SESSION['param'] == $modec) {
 <td width=10% align=center valign=top>
 <?php
 if ($_SESSION['param'] == $modec) {
-//	print "<input type=\"button\" value=\" ヘ ル プ \" onclick=\"SndWindow(1);\" ><br />";
+	print "<input type=\"button\" value=\" ヘ ル プ \" onclick=\"SndWindow(1);\"><br />";
 	print "<input type=\"button\" value=\"新規登録\" onclick=\"SndWindow(0);\">";
 }
 ?>

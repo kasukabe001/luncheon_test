@@ -16,8 +16,9 @@ require_once("../../webapp/config.php");
 
 
 // 不正遷移チェック
-if( (!$_SESSION['oid']) || !$_SESSION['PWD'] ) {
-  if (!$_SESSION['USERID']) { // Top pageからの表示に対応して追加 08/02/16
+//if( (!$_SESSION['oid']) || !$_SESSION['PWD'] ) { 
+if( (isset($_SESSION['oid']) == false) || isset($_SESSION['PWD']) == false ) {
+  if (isset($_SESSION['USERID']) == false) { // Top pageからの表示に対応して追加 08/02/16
     include ("../../com212/php/error_header.php");
     print "<font color=red>- Error -</font><br>\n";
     print "File read error" . "<br>";
@@ -30,9 +31,11 @@ if( (!$_SESSION['oid']) || !$_SESSION['PWD'] ) {
 
 // $downfile=$_GET['fname'];
 $downfile=urldecode($_GET['fname']); // 2012.4.20追加
-//if (substr($_GET['fname'],3,4) >= '1000') {
-  $downfile = mb_convert_encoding($downfile,"SJIS","UTF-8"); // 2012.4.20追加
-//}
+
+//$downfile = replaceKishuizon($downfile); // 機種依存文字対応 2018.8.18
+//$downfile = mb_convert_encoding($downfile,"SJIS","UTF-8"); // 2012.4.20追加
+$downfile = mb_convert_encoding($downfile,"sjis-win","UTF-8"); // 2012.4.20追加
+
 $downfile = preg_replace("/(\n|\r\n|\t)/","",$downfile); 
 
 // 2018.8.2 追加
