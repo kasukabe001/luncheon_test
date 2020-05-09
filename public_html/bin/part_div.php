@@ -32,8 +32,8 @@ if ($_GET[usersql]) { // 2ページ目以降
   $mystring = $_SERVER["HTTP_REFERER"];
   $str1 = "https:";
   $pos1 = strpos($mystring ,$str1);
-//  $str2 = "linkage-staff.jp/";
-  $str2 = "www.reg-clinkage.jp/";
+  $str2 = "linkage-staff.jp/";
+//  $str2 = "www.reg-clinkage.jp/";
   $pos2 = strpos($mystring ,$str2);
   if (($pos1 == 0 ) && ($pos2 == 8)) $hantei = "OK";
   if ($hantei == "NG") {
@@ -48,6 +48,7 @@ if( $Error ) {
   exit;
 }
 
+$phase = "";
 $phase = substr($_GET['ifra'],7,1);
 require("../../com212/inc/const.inc");
 require("../../com212/inc/dbconnect.ini");
@@ -95,7 +96,7 @@ require("../../com212/inc/pgmetadata.ini");
     if ($cmod == 1) $cc="#FFA07A"; //f0f0f0 FFA07A
 	else $cc="#ffffff";
 
-    print ("<td rowspan=2 class=standingsWin>");
+    print ("<td rowspan=2 class=standingsWinCenter>");
     print ("<input type=button value=\"詳細\" onclick=\"TopWindow($oid,$cmod);\">");
     $num += 1;
   }
@@ -192,6 +193,15 @@ switch ($n1) {
   break;
   case(13):
   $nd="2019";
+  break;
+  case(14):
+  $nd="2020";
+  break;
+  case(15):
+  $nd="2021";
+  break;
+  case(16):
+  $nd="2022";
 }
 
 switch ($s1) {
@@ -250,7 +260,10 @@ if ($mode != "insert" && $mode != "update") {
   }
 //  $sort = "semi_id";  // 08_01_22 修正
 //  $sort = "narabi";   // 08_01_29 修正
-  $sort = "kaisaibi";
+// 第1回目の実行時のsort節指定 2018 09 21追加 引数があればdesc なければasc(default), 新モード限定
+  if ($_GET['sort'] == 'desc' && $phase!=1) $sort = "kaisaibi desc";
+   else $sort = "kaisaibi asc";
+
   $atrlist["nendo"] = $nd;
   $atrlist["ryoiki"] = $rk;
   $atrlist["status"] = $stat;
@@ -267,6 +280,7 @@ if ($mode != "insert" && $mode != "update") {
   if (!empty($se)) $atrlist["sekinin"] = $se;
   if (!empty($sk)) $atrlist["soshiki"] = $sk;
   if (!empty($cl)) $atrlist["cltantou"] = $cl;
+  if ($_SESSION['param']  == $modea || $_SESSION['param']  == $modeb)  $atrlist["clonly"] = "0"; //アステラス用リスト
 }
 
 // $m->setAliases($Reg_Att_name);
