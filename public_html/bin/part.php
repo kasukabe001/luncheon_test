@@ -33,6 +33,7 @@ require_once("../../com212/inc/const.inc");
 // データベース・オープン
 //------------------------------------------------------------
 $conn = @pg_connect($OPEN);
+
 if($conn == false) {
   err_out(1);
   include ("../../com212/php/close_footer2012.php");
@@ -83,8 +84,8 @@ pg_close($conn);
 <div id=boxA>
 <form name=headform style="margin-bottom=1px;"><br>
 <table width=100% cellpadding=4 cellspacing=4><tr>
-<!-- td width=540 bgcolor="#FFffff" style="border:double;"><font size=2 -->
-<td width="71%" bgcolor="#FFffff" style="border:double;FONT-SIZE: 12px;">
+<td width="75%" bgcolor="#FFffff" style="border:double;FONT-SIZE: 12px;white-space: nowrap;">
+<div style="line-height:275%;padding-top:0px;padding-bottom:0px;">
 &nbsp;<b>年&nbsp;&nbsp;&nbsp;度</b>：&nbsp;<select size=1 name="n" STYLE="background-color:#ffffff;">
     <option value="" > </option>
     <option value="0" >2007</option>
@@ -124,8 +125,8 @@ pg_close($conn);
     <option value="4" >終了</option>
     </select>
 
-&nbsp;&nbsp;<b>領域</b>：<select size=1 name="r" STYLE="background-color:#ffffff;">
-    <option value="" selected > </option>
+&nbsp;&nbsp;<b>領域</b>：<select size=1 name="r" STYLE="background-color:#ffffff;" id="r" onchange="selRyoiki(this);">
+    <option value="" selected > </option> 
     <option value="11" >循環器・内分泌領域</option>
     <option value="12" >免疫アレルギー領域</option>
     <option value="13" >感染症領域</option>
@@ -136,11 +137,11 @@ pg_close($conn);
     <option value="18" >その他（化血研等）</option>
     </select>
 
-&nbsp;<B>品目</B>：
-<input type="text" name="h" size=10 STYLE="border-style:none; background-color:#CFCFCF">
+&nbsp;<a href="javascript:void(0);" onclick="SndWindow(4)">品目</a>：
+<input type="text" name="h" size=10 id="h" STYLE="border-style:none; background-color:#CFCFCF">
 
 &nbsp;<B>製品担当</B>：
-<input type="text" name="seihin" list="seihinmember" autocomplete="on" size=12>
+<input type="text" name="seihin" list="seihinmember" autocomplete="on" size=7>
   <datalist id="seihinmember">
     <option value="" >
 <?php
@@ -151,7 +152,7 @@ pg_close($conn);
   </datalist>
 
 &nbsp;<B>組織化担当</B>：
-<input type="text" name="soshiki" list="soshikimember" autocomplete="on" size=12>
+<input type="text" name="soshiki" list="soshikimember" autocomplete="on" size=7>
   <datalist id="soshikimember">
     <option value="">
 <?php
@@ -161,7 +162,7 @@ pg_close($conn);
 ?>
   </datalist>
 &nbsp;<B>CL担当</B>：
-<input type="text" name="cl" list="clmember" autocomplete="on" size=12>
+<input type="text" name="cl" list="clmember" autocomplete="on" size=7>
   <datalist id="clmember">
     <option value="">
 <?php
@@ -171,40 +172,39 @@ pg_close($conn);
 ?>
   </datalist>
 &emsp;
-<input type="button" value="ｸﾘｱ" onclick="clrbtn();">
-
-<img src="../images/spacer.gif" width="530" height="3"><br>
+<input type="button" value="ｸﾘｱ" onclick="clrbtn();" title="年度と進捗以外の項目をクリア">
+<img src="../images/spacer.gif" width="130" height="3"><br>
 &nbsp;<B>学会名</B>：
 <input type="text" name="g" size=32 STYLE="border-style:none; background-color:#CFCFCF">
 &nbsp;&nbsp;<B>会場名</B>：
 <input type="text" name="p" size=16 STYLE="border-style:none; background-color:#CFCFCF">
 &nbsp;&nbsp;
-<B><input type=radio name=r1 value="za" >座長 <input type=radio name=r1 value="en">演者：</B>
-<input type="text" name="z" size=14 STYLE="border-style:none; background-color:#CFCFCF">
-&nbsp;
-<input type="button" value=" 検 索 " onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
+<B><input type=radio name=r1 value="za" >座長 <input type=radio name=r1 value="en">演者</B>
+&nbsp;<input type="button" value="BC" onclick="clrbtn2();" STYLE="padding:3px 2px 3px 2px;" title="座長・演者の選択をクリア">
+：&nbsp;<input type="text" name="z" size=14 STYLE="border-style:none; background-color:#CFCFCF">
+&emsp;<input type="button" value=" 検 索 " onclick="doAction(2);" style="font-size:10pt;color:#ff0000">
 &emsp;<span class="salute">
 <B><input type=radio name=phase value="2008" onclick="doAction(3);">旧モード<input type=radio name=phase value="2018" onclick="doAction(3);">新モード</B></span>
 
-
+</div><!-- style="line-height:200%;" -->
 </td>
-<td width=9% align=right valign=top>
-<input type="button" value="To Excel" onclick="SndWindow(2)"><br>
+<td width=8% align=center valign=top>
+<input type="button" value="To Excel" onclick="SndWindow(2)" style="width:102px;height:28px;"><br>
 <?php
 if ($_SESSION['param'] == $modec) {
-	print "<input type=\"button\" value=\"管理機能\" onclick=\"SndWindow(3);\">";
+	print "<br><input type=\"button\" value=\"管理機能\" style=\"width:102px;height:28px;\" onclick=\"SndWindow(3);\">";
 }
 ?>
 </td>
-<td width=10% align=center valign=top>
+<td width=8% valign=top align=center>
 <?php
 if ($_SESSION['param'] == $modec) {
 //	print "<input type=\"button\" value=\" ヘ ル プ \" onclick=\"SndWindow(1);\" ><br />";
-	print "<input type=\"button\" value=\"新規登録\" onclick=\"SndWindow(0);\">";
+	print "　<input type=\"button\" value=\"新規登録\" style=\"width:102px;height:28px;\" onclick=\"SndWindow(0);\">";
 }
 ?>
 </td>
-<td width=10% valign=top><input type="button" value="ログアウト" onclick="location.href='./logout.php'">
+<td width=9% align=center valign=top><input type="button" value="ログアウト" style="width:102px;height:28px;" onclick="location.href='./logout.php'">
 </td>
 </tr></table>
 </form>
